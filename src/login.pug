@@ -1,0 +1,32 @@
+extends includes/layout/layout-guest.pug
+block pages 
+  include includes/components/mdc-text-field.pug
+  include includes/components/mdc-checkbox.pug
+  .guest-page.d-flex.align-items-center.justify-content-center
+    .guest-page-wrapper
+      .guest-form.d-flex.flex-wrap
+        .guest-item
+          img(src="./assets/images/image-login.jpg", alt="").form-image
+        .guest-item
+          form(action="#").custom-style-form
+            .form-group
+              .form-item 
+                label.form-label Email Address
+                +MdcTextField({ type: 'text', placeholder: 'Email Address' })
+            .form-group                
+              .form-item 
+                label.form-label Password
+                +MdcTextField({ type: 'password', placeholder: 'Password' })
+
+            .form-group                
+              .form-item 
+                a(href="#").guest-forgot-password Forgot Password ?
+                +MdcCheckbox({ id: 'rememberMe', label: 'Remember Me' })
+            .form-group              
+              .form-item 
+                include includes/components/mdc-button.pug
+                +MdcButton({ title: 'Log In' })
+
+      .guest-logo 
+        img(src="./assets/images/logo-light.svg", alt="")
+

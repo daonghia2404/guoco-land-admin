@@ -1,0 +1,118 @@
+.existing-properties-add-page {
+  margin: 0 -7.5px;
+  @media (max-width: 991px) {
+    margin: 0;
+  }
+
+  .tab-expand-group {
+    margin: 0 7.5px;
+    flex: 0 0 calc(100% - 320px - 15px);
+    max-width: calc(100% - 320px - 15px);
+  }
+
+  .upload-images {
+    margin: 0 7.5px 15px;
+    flex: 0 0 calc(320px - 15px);
+    max-width: calc(320px - 15px);
+  }
+
+  .tab-expand-group,
+  .upload-images {
+    @media (max-width: 991px) {
+      margin: 0 0 15px 0;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.existing-properties-detail-page {
+  margin: 0 -7.5px;
+  @media (max-width: 991px) {
+    margin: 0;
+  }
+
+  .section-card-style {
+    margin: 0 7.5px 15px;
+
+    @media (max-width: 991px) {
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+      margin: 0 0 15px 0 !important;
+    }
+
+    &.basic-detail {
+      flex: 0 0 calc(60% - 15px);
+      max-width: calc(60% - 15px);
+
+      .list-item {
+        margin-bottom: 30px;
+
+        .card-des {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.description {
+      flex: 0 0 calc(40% - 15px);
+      max-width: calc(40% - 15px);
+    }
+
+    &.file-upload {
+      @media (min-width: 992px) {
+        height: 100%;
+      }
+      flex: 1;
+    }
+
+    &.images {
+      flex: 0 0 calc(60% - 15px);
+      max-width: calc(60% - 15px);
+
+      .list-images {
+        @media (max-width: 575px) {
+          justify-content: center;
+        }
+        .image-item {
+          padding: 10px 0;
+          margin-bottom: 15px;
+
+          &:not(:last-of-type) {
+            @media (min-width: 576px) {
+              padding-right: 15px;
+              margin-right: 15px;
+              border-right: 1px solid $primary-light;
+            }
+          }
+          &.thumbnail {
+            .image-wrapper {
+              width: 145px;
+              height: 145px;
+            }
+          }
+
+          &.banner {
+            .image-wrapper {
+              width: 230px;
+              height: 145px;
+            }
+          }
+
+          .image-wrapper {
+            border-radius: 5px;
+            overflow: hidden;
+            @include centerImage;
+            margin-bottom: 10px;
+          }
+
+          .image-des {
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+      }
+
+    }
+  }
+}

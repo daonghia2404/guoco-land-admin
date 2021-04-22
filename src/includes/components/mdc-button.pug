@@ -1,0 +1,22 @@
+mixin MdcButton(data)
+  if (data.link)
+    a(href=`${data.link}` class=`${data.className ? data.className : ''}`).mdc-button-wrapper
+      .mdc-button(class=`${data.title && !data.isOutline ? 'mdc-button--raised' : ''} ${data.isOutline ? 'mdc-button--outlined' : ''} ${!data.title && data.icon ? 'mdc-btn-only-icon' : ''}`)
+        .mdc-button__ripple
+        if data.title
+          span.mdc-button__label= data.title
+        if data.icon 
+          span.mdc-button__label 
+            img(src=`${data.icon}`, alt="")
+  
+  else
+    button.mdc-button-wrapper(class=`${data.className ? data.className : ''} ${data.isDisabled ? 'disabled' : ''}`)
+      .mdc-button(class=`${data.title && !data.isOutline ? 'mdc-button--raised' : ''} ${data.isOutline ? 'mdc-button--outlined' : ''} ${!data.title && data.icon ? 'mdc-btn-only-icon' : ''}`)
+        .mdc-button__ripple
+        if data.isUpload
+          input(type="file").mdc-btn-upload
+        if data.title
+          span.mdc-button__label= data.title
+        if data.icon 
+          span.mdc-button__label 
+            img(src=`${data.icon}`, alt="")

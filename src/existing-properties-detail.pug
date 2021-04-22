@@ -1,0 +1,72 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  -
+    const dataBasicDetail = [
+      { title: 'Property Name', des: 'Guoco Tower' },
+      { title: 'Property Type', des: 'Integrated Development' },
+      { title: 'Launch / TOP Date', des: '01/01/2021' },
+      { title: 'Address', des: '1 Wallich St, S0788881' },
+      { title: 'Contact Number ', des: '9876 5432' },
+      { title: 'Email Address', des: 'info@guocotower.com' },
+    ]
+
+  .app-main-body 
+    .app-body-header
+      .app-des Discover / #[strong Property Detail]
+      .app-title Property Detail
+    .app-body-main
+      .existing-properties-detail-page.d-flex.flex-wrap.justify-content-between
+        .section-card-style.basic-detail 
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Basic Details 
+
+          .section-card-body 
+            .row 
+              each item in dataBasicDetail
+                .col-sm-6            
+                  .list-item  
+                    .card-title= item.title
+                    .card-des= item.des
+
+        .section-card-style.description 
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Description
+
+          .section-card-body 
+            .card-des Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia tenetur ab aut ratione ad voluptates illo expedita et unde a pariatur molestias quia, eius, officia facere aperiam odit rem omnis.
+            .card-des Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, voluptatibus.
+              
+        .section-card-style.images 
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Images
+
+          .section-card-body 
+            .list-images.d-flex.flex-wrap 
+              .image-item.thumbnail
+                .image-wrapper 
+                  img(src="./assets/images/image-thumbnail.png", alt="")
+                .image-des Thumbnail Image
+
+              .image-item.banner
+                .image-wrapper 
+                  img(src="./assets/images/image-banner.png", alt="")
+                .image-des Feature Banner Image
+
+        .half-section.d-flex.flex-column
+          .section-card-style.file-upload
+            .section-card-header.d-flex.align-items-center.justify-content-between 
+              span.card-title File Upload
+
+            .section-card-body 
+              .card-title PDF Uploaded
+              .card-des 
+                a(href="#") About_Guoco_Tower.pdf
+
+          .section-card-style.custom-style-form
+            .section-card-body.d-flex.justify-content-center
+              +MdcButton({ title: 'Delete Property', className: 'red-btn', isOutline: true })
+
+      a(href="#").back-page.d-flex.align-items-center
+        img(src="./assets/icons/icon-arrow-left-brown.svg", alt="")
+        |Back to Existing Properties

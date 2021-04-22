@@ -1,0 +1,133 @@
+-
+  const dataMenu = [
+    {
+      title: 'Dashboard',
+      link: '#',
+      child: [],
+    },
+    {
+      title: 'Users',
+      link: '#',
+      child: [
+        {
+          title: 'All users',
+          link: '#',
+        },
+        {
+          title: 'Refernece Codes',
+          link: '#',
+        },
+      ],
+    },
+    {
+      title: 'Discover',
+      link: '#',
+      child: [
+        {
+          title: 'Existing Properties',
+          link: '#',
+        },
+        {
+          title: 'Upcoming Launches',
+          link: '#',
+        },
+        {
+          title: 'Media Coverage',
+          link: '#',
+        },
+        {
+          title: 'Contact Info',
+          link: '#',
+        },
+      ],
+    },
+    {
+      title: 'Merchants',
+      link: '#',
+      child: [
+        {
+          title: 'All Merchants',
+          link: '#',
+        },
+        {
+          title: 'All Privileges',
+          link: '#',
+        },
+      ],
+    },
+    {
+      title: 'Events',
+      link: '#',
+      child: [],
+    },
+    {
+      title: 'Communications',
+      link: '#',
+      child: [],
+    },
+    {
+      title: 'Reports',
+      link: '#',
+      child: [
+        {
+          title: 'Merchants',
+          link: '#',
+        },
+        {
+          title: 'Redemptions',
+          link: '#',
+        },
+        {
+          title: 'Users',
+          link: '#',
+        },
+      ],
+    },
+    {
+      title: 'FAQ',
+      link: '#',
+      child: [],
+    },
+    {
+      title: 'Backend Access',
+      link: '#',
+      child: [
+        {
+          title: 'All Users',
+          link: '#',
+        },
+        {
+          title: 'All Roles',
+          link: '#',
+        },
+      ],
+    },
+    {
+      title: 'Settings',
+      link: '#',
+      child: [],
+    },
+  ]
+
+.app-menu-wrapper 
+  .menu-overlay
+  .app-menu 
+    .menu-logo
+      img(src="./assets/images/logo-light.svg", alt="")
+    .menu-lists 
+      ul.mdc-list
+        each item, index in dataMenu
+          li.mdc-list-item(data-submenu=`${item.child.length !== 0 ? item.title.toLowerCase().replace(/\s/g, '-') : ''}`)
+            span.mdc-list-item__ripple
+            span.mdc-list-item__text.d-flex.align-items-center.justify-content-between
+              = item.title 
+              if item.child.length !== 0
+                img(src="./assets/icons/icon-angle-down-white.svg", alt="")
+
+          if item.child.length !== 0
+            ul.mdc-list.sub-menu(id=`${item.title.toLowerCase().replace(/\s/g, '-')}`)
+              each sub, indexSub in item.child 
+                li.mdc-list-item
+                  span.mdc-list-item__ripple
+                  span.mdc-list-item__text.d-flex.align-items-center.justify-content-between
+                    = sub.title 

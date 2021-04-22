@@ -1,0 +1,17 @@
+.role-add-page {
+  .form-group.checkbox-group {
+    .mdc-checkbox-wrapper {
+      label {
+        font-weight: 600;
+      }
+    }
+    .checkbox-child {
+      padding-left: 15px;
+      .mdc-checkbox-wrapper {
+        label {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

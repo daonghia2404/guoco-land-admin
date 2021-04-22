@@ -1,0 +1,79 @@
+.guest-page {
+  min-height: 100vh;
+  background: $primary;
+  padding: 15px;
+
+  .guest-forgot-password {
+    font-size: 14px;
+    text-align: right;
+    font-style: italic;
+    display: block;
+    color: $black;
+    text-decoration: underline;
+  }
+
+  .guest-form {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    max-width: 880px;
+    margin-bottom: 25px;
+    @media (max-width: 768px) {
+      max-width: 475px;
+    }
+    .guest-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 50px 0;
+      background: $white;
+      @media (max-width: 768px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+      .form-image {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        @media (max-width: 768px) {
+          max-width: 320px;
+        }
+      }
+      form.custom-style-form {
+        .form-group {
+          .form-label {
+            font-size: 16px;
+          }
+          .mdc-checkbox-wrapper {
+            label {
+              font-size: 16px;
+            }
+          }
+        }
+        .mdc-text-field {
+          .mdc-text-field__input {
+            font-size: 16px;
+          }
+        }
+        .mdc-button {
+          height: 45px;
+        }
+      }
+      &:nth-of-type(2) {
+        padding: 50px 45px;
+        background: $bg-light;
+
+        @media (max-width: 768px) {
+          padding: 30px;
+        }
+      }
+    }
+  }
+  .guest-logo {
+    max-width: 190px;
+    margin-left: auto;
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.merchant-add-page {
+  margin: 0 -7.5px;
+  @media (max-width: 991px) {
+    margin: 0;
+  }
+  .tab-expand-group {
+    margin: 0 7.5px;
+    flex: 0 0 calc(100% - 550px - 15px);
+    max-width: calc(100% - 550px - 15px);
+  }
+
+  .upload-images {
+    margin: 0 7.5px 15px;
+    flex: 0 0 calc(550px - 15px);
+    max-width: calc(550px - 15px);
+  }
+  .tab-expand-group,
+  .upload-images {
+    @media (max-width: 991px) {
+      margin: 0 0 15px 0;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+extends includes/layout/layout.pug
+block pages
+  -
+    const dataPrivileges = [
+      { title: 'Entertainment', number: '15' },
+      { title: 'Health & Beauty', number: '10' },
+      { title: 'Essential Services', number: '10' },
+      { title: 'Home Services', number: '15' },
+      { title: 'Fitness & Enrichment', number: '10' },
+      { title: 'Kids Activities', number: '15' },
+      { title: 'F&B', number: '15' },
+      { title: 'Retail', number: '10' },
+    ]
+
+    const dataMerchants = [
+      { title: 'Entertainment', number: '7', icon: './assets/icons/icon-entertainment-white.svg' },
+      { title: 'Essential Services', number: '5', icon: './assets/icons/icon-essential-services-white.svg' },
+      { title: 'Fitness & Enrichment', number: '5', icon: './assets/icons/icon-fitness-enrichment-white.svg' },
+      { title: 'F&B', number: '8', icon: './assets/icons/icon-f-b-white.svg' },
+      { title: 'Health & Beauty', number: '5', icon: './assets/icons/icon-health-beauty-white.svg' },
+      { title: 'Home Services', number: '7', icon: './assets/icons/icon-home-services-white.svg' },
+      { title: 'Kids Activities', number: '5', icon: './assets/icons/icon-kids-activities-white.svg' },
+      { title: 'Retail', number: '8', icon: './assets/icons/icon-retail-white.svg' },
+    ]
+
+  .app-main-body 
+    .app-body-header
+      .app-des Dashboard
+      .app-title Dashboard
+    .app-body-main
+      .dashboard-page.d-flex.flex-wrap 
+        .section-card-style.privileges
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Privileges 
+            span.card-sub-title Total: #[strong 100]
+          .section-card-body 
+            .privileges-lists 
+              .row
+                each item in dataPrivileges
+                  .col-sm-6
+                    .list-item.d-flex.align-items-center 
+                      .item-number= item.number 
+                      .item-title= item.title
+
+        .section-card-style.privileges-redeemed
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Privileges Redeemed
+            span.card-sub-title Total: #[strong 12,000]
+          .section-card-body 
+            .privileges-redeemed-chart 
+              .chart-des.d-flex.align-items-center 
+                |Showing Oct 20 - Feb 21
+                img(src="./assets/icons/icon-calendar-gray.svg", alt="")
+
+        .most-section.d-flex.flex-column 
+          .section-card-style.most
+            img(src="./assets/icons/icon-heart-outline-brown.svg", alt="").section-card-bg
+            .section-card-header.d-flex.align-items-center.justify-content-between 
+              span.card-title Most Likes
+            .section-card-body 
+              .most-number 6,000
+              p 1-for-1 Hot Latte (S)
+              p Ruby Coffee Roasters
+
+          .section-card-style.most
+            img(src="./assets/icons/icon-arrow-up-brown.svg", alt="").section-card-bg
+            .section-card-header.d-flex.align-items-center.justify-content-between 
+              span.card-title Most Redemptions
+            .section-card-body 
+              .most-number 5,000
+              p 1-for-1 Hot Latte (S)
+              p Ruby Coffee Roasters
+
+        .section-card-style.merchants
+          .section-card-header.d-flex.align-items-center.justify-content-between
+            span.card-title Merchants
+            span.card-sub-title Total: #[strong 50]
+          .section-card-body 
+            .merchants-lists.d-flex.flex-wrap 
+              each item in dataMerchants
+                .list-item.d-flex.align-items-center 
+                  .item-icon 
+                    img(src=`${item.icon}`, alt="")
+                  .item-info
+                    .item-number= item.number 
+                    .item-title= item.title
+
+        .section-card-style.users
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Users
+            span.card-sub-title Total: #[strong 12,000]
+          .section-card-body 
+            .users-chart 
+              .chart-des.d-flex.align-items-center 
+                |Showing Oct 20 - Feb 21
+                img(src="./assets/icons/icon-calendar-gray.svg", alt="")
+
+
+
+

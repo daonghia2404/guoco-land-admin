@@ -1,0 +1,45 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  include includes/components/mdc-text-field.pug
+
+  .app-main-body 
+    .app-body-header
+      .app-des FAQ
+      .app-title.d-flex.align-items-center.justify-content-between
+        |FAQ
+        .button-group.d-flex.custom-style-form.table-main-wrapper
+          +MdcButton({ icon: './assets/icons/icon-search.svg', className: 'mr-2' })
+          +MdcButton({ icon: './assets/icons/icon-download.svg', className: 'mr-2' })
+          +MdcButton({ title: 'Add New' })
+          
+    .app-body-main
+      .event-detail-page.d-flex.flex-wrap.tab-wrapper
+        .event-detail-page-item 
+          .event-tab-action.section-card-style.d-flex.flex-column
+            .tabs-group
+              .tab-item.d-flex.align-items-center.active
+                |About Guocoland Privilege Club and Membership
+              .tab-item.d-flex.align-items-center
+                |About Privileges
+              .tab-item.d-flex.align-items-center
+                |Personal Data & Information
+            
+            .custom-style-form.d-flex.justify-content-center
+              +MdcButton({ title: 'Add Category', isOutline: true })
+
+        .event-detail-page-item.tabs-main-group
+          each tab, tabIndex in ['Who is eligible to join GuocoLand Privilege Club ?', 'About Privileges', 'Personal Data & Information']
+            .tab-item(class=`${tabIndex === 0 ? 'active' : ''}`)
+              .tab-expand-group 
+                each item in [1,2,3,4,5]
+                  .tab-expand-item.section-card-style
+                    .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+                      span= tab
+                      img(src="./assets/icons/icon-angle-up-white.svg", alt="")
+                    .tab-body 
+                      p Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.
+                      .custom-style-form.d-flex.justify-content-end
+                        +MdcButton({ title: 'Delete', className: 'mr-2', isOutline: true })
+                        +MdcButton({ title: 'Edit' })
+          

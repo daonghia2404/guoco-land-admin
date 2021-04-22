@@ -1,0 +1,132 @@
+.dashboard-page {
+  margin: 0 -7.5px;
+  @media (max-width: 991px) {
+    margin: 0;
+  }
+  .most-section {
+    flex: 1;
+  }
+  .section-card-style {
+    margin: 0 7.5px 15px;
+    @media (max-width: 991px) {
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+      margin: 0 0 15px 0 !important;
+    }
+    &.privileges {
+      max-width: calc(40% - 15px);
+      flex: 0 0 calc(40% - 15px);
+      .privileges-lists {
+        .list-item {
+          margin-bottom: 30px;
+          .item-number {
+            color: $primary;
+            font-size: 24px;
+            font-weight: 500;
+            margin-right: 25px;
+          }
+          .item-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    &.privileges-redeemed {
+      max-width: calc(35% - 15px);
+      flex: 0 0 calc(35% - 15px);
+      .privileges-redeemed-chart {
+        .chart-des {
+          font-size: 14px;
+          img {
+            width: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    &.most {
+      @media (min-width: 992px) {
+        height: 100%;
+      }
+      &:first-of-type {
+        margin-bottom: 15px;
+      }
+      .most-number {
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+    }
+    &.merchants {
+      max-width: calc(60% - 15px);
+      flex: 0 0 calc(60% - 15px);
+      .merchants-lists {
+        margin: 0 -7.5px;
+        @media (max-width: 575px) {
+          margin: 0;
+        }
+        .list-item {
+          margin: 0 7.5px 15px;
+          padding: 15px 0;
+          max-width: calc(100% / 4 - 15px);
+          flex: 0 0 calc(100% / 4 - 15px);
+          background: $primary-light;
+          border-radius: 10px;
+          @include box-shadow;
+
+          @media (max-width: 1200px) {
+            max-width: calc(100% / 3 - 15px);
+            flex: 0 0 calc(100% / 3 - 15px);
+          }
+          @media (max-width: 768px) {
+            max-width: calc(100% / 2 - 15px);
+            flex: 0 0 calc(100% / 2 - 15px);
+          }
+          @media (max-width: 575px) {
+            max-width: 100%;
+            flex: 0 0 100%;
+            margin: 0 0 15px 0;
+          }
+          .item-icon {
+            padding: 0 15px;
+            img {
+              width: 25px;
+            }
+          }
+          .item-info {
+            border-left: 1px solid $white;
+            padding: 0 15px;
+            .item-number {
+              color: $white;
+              font-size: 24px;
+              font-weight: 500;
+            }
+            .item-title {
+              color: $white;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    &.users {
+      max-width: calc(40% - 15px);
+      flex: 0 0 calc(40% - 15px);
+      .users-chart {
+        .chart-des {
+          font-size: 14px;
+          img {
+            width: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

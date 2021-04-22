@@ -1,0 +1,216 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  include includes/components/mdc-text-field.pug
+  include includes/components/mdc-checkbox.pug
+
+  .app-main-body 
+    .app-body-header
+      .app-des Discover / All Merchants / #[strong New Merchants]
+      .app-title.d-flex.align-items-center.justify-content-between
+        |New Merchants
+        .button-group.d-flex.custom-style-form
+          +MdcButton({ title: 'Cancel', className: 'mr-2', isOutline: true })
+          +MdcButton({ title: 'Save' })
+
+    .app-body-main
+      .merchant-add-page.d-flex.flex-wrap.justify-content-between
+        .tab-expand-group 
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 1: Basic Details
+              img(src="./assets/icons/icon-angle-up-white.svg" alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group.col-6-4
+                  .form-item 
+                    label.form-label Merchant Name *
+                    +MdcTextField({ type: 'text', placeholder: 'Merchant Name' })
+                  .form-item 
+                    label.form-label Address Line 1 *
+                    +MdcTextField({ type: 'text', placeholder: 'Address Line 1' })
+
+                .form-group.col-6-4
+                  .form-item 
+                    label.form-label Address Line 2 *
+                    +MdcTextField({ type: 'text', placeholder: 'Address Line 2' })
+                  .form-item 
+                    label.form-label Postal Code *
+                    +MdcTextField({ type: 'text', placeholder: 'Postal Code' })
+
+                .form-group.col-3-3-3
+                  .form-item 
+                    label.form-label Contact Person *
+                    +MdcTextField({ type: 'text', placeholder: 'Contact Person' })
+                  .form-item 
+                    label.form-label Contact No *
+                    +MdcTextField({ type: 'text', placeholder: 'Contact No' })
+                  .form-item 
+                    label.form-label Email Address *
+                    +MdcTextField({ type: 'text', placeholder: 'Email Address' })
+
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
+
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 2: Description
+              img(src="./assets/icons/icon-angle-up-white.svg" alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group
+                  .form-item 
+                    +MdcTextField({ type: 'textarea', placeholder: 'Description here', isCounter: true, maxLength: 150 })
+
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
+
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 3: Zone & Category
+              img(src="./assets/icons/icon-angle-up-white.svg" alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group.col-5-5
+                  .form-item 
+                    label.form-label Zone *
+                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select Zone', 'Zone 1', 'Zone 2'] })
+
+                  .form-item 
+                    label.form-label Category *
+                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select Category', 'Zone 1', 'Zone 2'] })
+
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
+
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 4: Operating Hours
+              img(src="./assets/icons/icon-angle-up-white.svg" alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group
+                  .form-item
+                    label.form-label Select Days
+                    .checkbox-group.d-flex.flex-wrap.justify-content-start
+                      each item in ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'public holiday'] 
+                        +MdcCheckbox({ label: `${item.toUpperCase()}`, id: `${item.replace(/\s/g, '-')}` })
+
+                label.form-label Select Opening Hours
+
+                .form-group.justify-content-start.picker-time.align-items-end
+                  .form-item 
+                    label.form-label Start Time
+                    +MdcTextField({ type: 'time', placeholder: "Start Time" })
+                  .form-item
+                    label.form-label to
+                  .form-item 
+                    label.form-label End Time
+                    +MdcTextField({ type: 'time', placeholder: "End Time" })
+
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Add' })
+
+                .line
+
+                .table-main-wrapper 
+                  .table-main
+                    .table-main-body 
+                      table 
+                        thead 
+                          tr 
+                            td.center Day
+                            td.center Time
+                            td.center.table-action
+                        tbody 
+                          tr 
+                            td.center.nowrap MONDAY 
+                            td.multil-row
+                              .row-item.center.nowrap
+                                span 19:30AM - 02:00PM
+                              .row-item.center.nowrap
+                                span 05:30PM - 10:00PM
+                            td.table-action.center 
+                              +MdcButton({ icon: './assets/icons/icon-delete.svg' })
+                          tr 
+                            td.center.nowrap TUESDAY 
+                            td.center.nowrap Closed
+                            td.table-action.center 
+                              +MdcButton({ icon: './assets/icons/icon-delete.svg', isDisabled: true })
+
+                          each item in ['WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+                            tr 
+                              td.center.nowrap= item
+                              td.center.nowrap 10:30AM - 09:00PM
+                              td.table-action.center 
+                                +MdcButton({ icon: './assets/icons/icon-delete.svg' })
+
+                          tr 
+                            td.center.nowrap PUBLIC HOLIDAY 
+                            td.center.nowrap Closed
+                            td.table-action.center 
+                              +MdcButton({ icon: './assets/icons/icon-delete.svg', isDisabled: true })
+
+        .upload-images.section-card-style 
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Images 
+
+          form(action="#").custom-style-form
+            .form-group.col-5-5
+              .form-item.upload-image.uploaded.upload-single-image
+                .upload-wrapper.s-250-250.d-flex.align-items-center.justify-content-center
+                  input(type="file")
+                  .upload-placeholder 
+                    img(src="./assets/icons/icon-image-gray.svg" alt="")
+                    |Upload Image
+                  .upload-image-value
+                    img(src="./assets/images/image-thumbnail.png" alt="")
+                    +MdcButton({ icon: './assets/icons/icon-delete-white.svg' })
+
+                .upload-wrapper-footer.d-flex.align-items-center
+                  label.form-label
+                    span Logo *
+                    i (100 x 100px)
+                  +MdcButton({ isUpload: true, title: 'Change', isOutline: true })
+
+              .form-item.upload-image.upload-single-image
+                .upload-wrapper.s-250-250.d-flex.align-items-center.justify-content-center
+                  input(type="file")
+                  .upload-placeholder 
+                    img(src="./assets/icons/icon-image-gray.svg" alt="")
+                    |Upload Image
+
+                label.form-label
+                  span Profile Photo *
+                  i (250 x 250px)
+
+            .form-group
+              .form-item.upload-image.upload-multiple-image 
+                .upload-image-group.d-flex
+                  .upload-wrapper.s-350-250.d-flex.align-items-center.justify-content-center
+                    input(type="file")
+                    .upload-placeholder 
+                      img(src="./assets/icons/icon-image-gray.svg" alt="")
+                      |Upload Image
+
+                  .upload-image-value
+                    img(src="./assets/images/image-thumbnail.png" alt="")
+                    +MdcButton({ icon: './assets/icons/icon-delete-white.svg' })
+                  .upload-image-value
+                    img(src="./assets/images/image-thumbnail.png" alt="")
+                    +MdcButton({ icon: './assets/icons/icon-delete-white.svg' })
+                  .upload-image-value
+                    img(src="./assets/images/image-thumbnail.png" alt="")
+                    +MdcButton({ icon: './assets/icons/icon-delete-white.svg' })
+
+                label.form-label
+                  span Feature Banner Images(s) *
+                  i (Up to 3 images - 350 x 250px)
+
+        a(href="#").back-page.d-flex.align-items-center
+          img(src="./assets/icons/icon-arrow-left-brown.svg" alt="")
+          |Back to All Merchants

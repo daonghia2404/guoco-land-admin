@@ -1,0 +1,68 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  include includes/components/mdc-text-field.pug
+
+  .app-main-body 
+    .app-body-header
+      .app-des Events
+      .app-title Events
+    .app-body-main
+      .event-page
+        .table-main-wrapper 
+          form(action="#").custom-style-form.table-main-header.d-flex.align-items-center.justify-content-between.flex-wrap
+            .header-item.d-flex.align-items-center.flex-wrap
+              +MdcTextField({ type: 'date' })
+              +MdcTextField({ type: 'select', dataSelectOptions: ['Status', 'Status 1', 'Status 2'] })
+              
+            .header-item.d-flex.align-items-center.flex-wrap
+              +MdcButton({ icon: './assets/icons/icon-square.svg' })
+              +MdcButton({ icon: './assets/icons/icon-search.svg' })
+              +MdcButton({ icon: './assets/icons/icon-download.svg' })
+              +MdcButton({ title: 'Add Event' })
+              
+          .table-main
+            .table-main-body 
+              table 
+                thead 
+                  tr 
+                    td.center.nowrap Start Date & Time
+                    td.center.nowrap End Date & Time
+                    td Title
+                    td Venue
+                    td.center Contact No.
+                    td.center Status
+                    td.table-action
+                tbody 
+                  each item in [1,2,3,4,5,6,7,8,9,10]
+                    if item < 4
+                      tr 
+                        td.center.nowrap 01/03/2021, 10:30AM          
+                        td.center.nowrap 01/03/2021, 10:30AM          
+                        td.min-width-150 Coffee Appreciation Workshop
+                        td.min-width-150 8 Martin Place, Martin Modern, Function Room, S237992
+                        td.nowrap.center 9876 5432
+                        if item % 2 === 0
+                          td.nowrap.center.disabled Ended
+                        else 
+                          td.nowrap.center Upcoming
+                        td.table-action.center 
+                          a(href="#").table-see-more
+                            img(src="./assets/icons/icon-eye.svg", alt="")
+                    else 
+                      tr
+                        each item in [1,2,3,4,5,6,7]
+                          td.null
+
+            .table-main-footer.d-flex.align-items-center.justify-content-end 
+              .table-page-info 1 - 10 of 33
+              form(action="#").table-page-action.d-flex.align-items-center
+                button.action-icon(disabled)
+                  img(src="./assets/icons/icon-angle-line-left.svg", alt="")
+                button.action-icon(disabled)
+                  img(src="./assets/icons/icon-angle-left.svg", alt="")
+                .action-page Page 1
+                button.action-icon
+                  img(src="./assets/icons/icon-angle-line-right.svg", alt="")
+                button.action-icon
+                  img(src="./assets/icons/icon-angle-right.svg", alt="")

@@ -1,0 +1,21 @@
+mixin MdcTextField(data)
+  label.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label(class=`${data.type === 'date' ? 'mdc-input-date' : ''} ${data.type === 'select' ? 'mdc-select' : ''} ${data.type === 'textarea' ? 'mdc-textarea' : ''} ${data.type === 'time' ? 'mdc-time' : ''}`)
+    span.mdc-text-field__ripple
+    if data.type === 'select'
+      input.mdc-text-field__input(style="display: none;")
+      select.mdc-text-field__select
+        each item in data.dataSelectOptions
+          option(value=`${item}`)= item
+    else if data.type === 'textarea'
+      span.mdc-text-field__resizer
+        textarea.mdc-text-field__input(maxlength=`${data.maxLength}` placeholder=`${data.placeholder ? data.placeholder : ''}` aria-label="Label")
+    else
+      input(type=`${data.type}` placeholder=`${data.placeholder ? data.placeholder : ''}`).mdc-text-field__input
+    if data.type === 'date'
+      img(src="./assets/icons/icon-calendar-gray.svg", alt="").icon-date
+    if ['select', 'time'].includes(data.type)
+      img(src="./assets/icons/icon-angle-down-gray.svg", alt="").icon-select
+  
+  if data.isCounter 
+    .mdc-text-field-helper-line
+      .mdc-text-field-character-counter 0 / 10

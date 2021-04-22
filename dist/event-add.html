@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gulp Template</title>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  </head>
+  <body>
+    <header class="header"> 
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="header-item">
+          <div class="header-btn-menu"> <img src="./assets/icons/icon-menu-brown.svg" alt=""></div>
+        </div>
+        <div class="header-item d-flex align-items-center"> <a class="item-mail" href="#"><img src="./assets/icons/icon-email.svg" alt=""></a>
+          <div class="item-account d-flex align-items-center"> <span class="account-name">John Smith </span><img src="./assets/icons/icon-angle-down.svg" alt=""></div>
+        </div>
+      </div>
+    </header>
+    <div class="app-menu-wrapper"> 
+      <div class="menu-overlay"></div>
+      <div class="app-menu"> 
+        <div class="menu-logo"><img src="./assets/images/logo-light.svg" alt=""></div>
+        <div class="menu-lists"> 
+          <ul class="mdc-list">
+            <li class="mdc-list-item" data-submenu=""><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Dashboard</span></li>
+            <li class="mdc-list-item" data-submenu="users"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Users<img src="./assets/icons/icon-angle-down-white.svg" alt=""></span></li>
+            <ul class="mdc-list sub-menu" id="users">
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">All users</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Refernece Codes</span></li>
+            </ul>
+            <li class="mdc-list-item" data-submenu="discover"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Discover<img src="./assets/icons/icon-angle-down-white.svg" alt=""></span></li>
+            <ul class="mdc-list sub-menu" id="discover">
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Existing Properties</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Upcoming Launches</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Media Coverage</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Contact Info</span></li>
+            </ul>
+            <li class="mdc-list-item" data-submenu="merchants"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Merchants<img src="./assets/icons/icon-angle-down-white.svg" alt=""></span></li>
+            <ul class="mdc-list sub-menu" id="merchants">
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">All Merchants</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">All Privileges</span></li>
+            </ul>
+            <li class="mdc-list-item" data-submenu=""><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Events</span></li>
+            <li class="mdc-list-item" data-submenu=""><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Communications</span></li>
+            <li class="mdc-list-item" data-submenu="reports"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Reports<img src="./assets/icons/icon-angle-down-white.svg" alt=""></span></li>
+            <ul class="mdc-list sub-menu" id="reports">
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Merchants</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Redemptions</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Users</span></li>
+            </ul>
+            <li class="mdc-list-item" data-submenu=""><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">FAQ</span></li>
+            <li class="mdc-list-item" data-submenu="backend-access"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Backend Access<img src="./assets/icons/icon-angle-down-white.svg" alt=""></span></li>
+            <ul class="mdc-list sub-menu" id="backend-access">
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">All Users</span></li>
+              <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">All Roles</span></li>
+            </ul>
+            <li class="mdc-list-item" data-submenu=""><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text d-flex align-items-center justify-content-between">Settings</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="app-main-body"> 
+      <div class="app-body-header">
+        <div class="app-des">Events / <strong>New Event</strong></div>
+        <div class="app-title d-flex align-items-center justify-content-between">New Event
+          <div class="button-group d-flex custom-style-form">
+                <button class="mdc-button-wrapper mr-2">
+                  <div class="mdc-button mdc-button--outlined">
+                    <div class="mdc-button__ripple"></div><span class="mdc-button__label">Cancel</span>
+                  </div>
+                </button>
+                <button class="mdc-button-wrapper disabled">
+                  <div class="mdc-button mdc-button--raised">
+                    <div class="mdc-button__ripple"></div><span class="mdc-button__label">Save</span>
+                  </div>
+                </button>
+          </div>
+        </div>
+      </div>
+      <div class="app-body-main">
+        <div class="event-add-page d-flex flex-wrap justify-content-between">
+          <div class="tab-expand-group"> 
+            <div class="tab-expand-item section-card-style">
+              <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Step 1: Basic Details</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
+              <div class="tab-body"> 
+                <form class="custom-style-form" action="#">
+                  <div class="form-group"> 
+                    <div class="form-item"> 
+                      <label class="form-label">Event Title *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Event Title">
+                          </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-2-2-2-2-2">
+                    <div class="form-item"> 
+                      <label class="form-label">Start Date *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-input-date"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="date" placeholder="Start Date"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt="">
+                          </label>
+                    </div>
+                    <div class="form-item"> 
+                      <label class="form-label">Start Time *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-input-date"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="date" placeholder="Start Time"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt="">
+                          </label>
+                    </div>
+                    <div class="form-item">
+                      <label class="form-label">End Date *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-input-date"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="date" placeholder="End Date"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt="">
+                          </label>
+                    </div>
+                    <div class="form-item"> 
+                      <label class="form-label">End Time *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-input-date"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="date" placeholder="End Time"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt="">
+                          </label>
+                    </div>
+                    <div class="form-item"> </div>
+                  </div>
+                  <div class="form-group col-4-4-2">
+                    <div class="form-item"> 
+                      <label class="form-label">Address Line 1 *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Address Line 1">
+                          </label>
+                    </div>
+                    <div class="form-item"> 
+                      <label class="form-label">Address Line 2 *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Address Line 2">
+                          </label>
+                    </div>
+                    <div class="form-item"> 
+                      <label class="form-label">Postal Code *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Postal Code">
+                          </label>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex enable-notification flex-wrap align-items-end">
+                    <div class="form-item">
+                      <label class="form-label">Contact Number *</label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="Contact Number">
+                          </label>
+                    </div>
+                    <div class="form-item d-flex align-items-center justify-content-end flex-wrap">
+                          <div class="mdc-checkbox-wrapper"> 
+                            <div class="mdc-checkbox">
+                              <input class="mdc-checkbox__native-control" type="checkbox" id="enableNotifications">
+                              <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                              </div>
+                              <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="enableNotifications">Enable Notifications</label>
+                          </div>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" type="text" placeholder="No.">
+                          </label>
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-select"><span class="mdc-text-field__ripple"></span>
+                            <input class="mdc-text-field__input" style="display: none;">
+                            <select class="mdc-text-field__select">
+                              <option value="Select">Select</option>
+                              <option value="Select 1">Select 1</option>
+                              <option value="Select 2">Select 2</option>
+                            </select><img class="icon-select" src="./assets/icons/icon-angle-down-gray.svg" alt="">
+                          </label>
+                      <label class="form-label">Before</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="tab-expand-item section-card-style">
+              <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Step 2: Description</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
+              <div class="tab-body"> 
+                <form class="custom-style-form" action="#">
+                  <div class="form-group">
+                    <div class="form-item"> 
+                          <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-textarea"><span class="mdc-text-field__ripple"></span><span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" maxlength="150" placeholder="Description here" aria-label="Label"></textarea></span>
+                          </label>
+                          <div class="mdc-text-field-helper-line">
+                            <div class="mdc-text-field-character-counter">0 / 10</div>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="form-group"> 
+                    <div class="form-item"> 
+                          <button class="mdc-button-wrapper tab-expand-click-next">
+                            <div class="mdc-button mdc-button--raised">
+                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Next</span>
+                            </div>
+                          </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="upload-images section-card-style"> 
+            <div class="section-card-header d-flex align-items-center justify-content-between"> <span class="card-title">Images </span></div>
+            <form class="custom-style-form" action="#">
+              <div class="form-group"> 
+                <div class="form-item upload-image uploaded upload-single-image">
+                  <div class="upload-wrapper s-250-250 d-flex align-items-center justify-content-center">
+                    <input type="file">
+                    <div class="upload-placeholder"> <img src="./assets/icons/icon-image-gray.svg" alt="">Upload Image</div>
+                    <div class="upload-image-value"><img src="./assets/images/image-thumbnail.png" alt="">
+                          <button class="mdc-button-wrapper">
+                            <div class="mdc-button mdc-btn-only-icon">
+                              <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-delete-white.svg" alt=""></span>
+                            </div>
+                          </button>
+                    </div>
+                  </div>
+                  <div class="upload-wrapper-footer d-flex align-items-center">
+                    <label class="form-label"><span>Thumbnail Image *</span><i>(250 x 250px)</i></label>
+                        <button class="mdc-button-wrapper">
+                          <div class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div>
+                            <input class="mdc-btn-upload" type="file"><span class="mdc-button__label">Change</span>
+                          </div>
+                        </button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group"> 
+                <div class="form-item upload-image upload-single-image">
+                  <div class="upload-wrapper s-350-250 d-flex align-items-center justify-content-center">
+                    <input type="file">
+                    <div class="upload-placeholder"> <img src="./assets/icons/icon-image-gray.svg" alt="">Upload Image</div>
+                  </div>
+                  <label class="form-label"><span>Feature Banner Image *</span><i>(350 x 250px)</i></label>
+                </div>
+              </div>
+            </form>
+          </div><a class="back-page d-flex align-items-center" href="#"><img src="./assets/icons/icon-arrow-left-brown.svg" alt="">Back to Events</a>
+        </div>
+      </div>
+    </div><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

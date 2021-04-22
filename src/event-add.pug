@@ -1,0 +1,116 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  include includes/components/mdc-text-field.pug
+  include includes/components/mdc-checkbox.pug
+
+  .app-main-body 
+    .app-body-header
+      .app-des Events / #[strong New Event]
+      .app-title.d-flex.align-items-center.justify-content-between
+        |New Event
+        .button-group.d-flex.custom-style-form
+          +MdcButton({ title: 'Cancel', className: 'mr-2', isOutline: true })
+          +MdcButton({ title: 'Save', isDisabled: true })
+          
+    .app-body-main
+      .event-add-page.d-flex.flex-wrap.justify-content-between
+        .tab-expand-group 
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 1: Basic Details
+              img(src="./assets/icons/icon-angle-up-white.svg", alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group 
+                  .form-item 
+                    label.form-label Event Title *
+                    +MdcTextField({ type: 'text', placeholder: 'Event Title' })
+                .form-group.col-2-2-2-2-2
+                  .form-item 
+                    label.form-label Start Date *
+                    +MdcTextField({ type: 'date', placeholder: 'Start Date' })
+                  .form-item 
+                    label.form-label Start Time *
+                    +MdcTextField({ type: 'date', placeholder: 'Start Time' })
+                  .form-item
+                    label.form-label End Date *
+                    +MdcTextField({ type: 'date', placeholder: 'End Date' })
+                  .form-item 
+                    label.form-label End Time *
+                    +MdcTextField({ type: 'date', placeholder: 'End Time' })
+                  .form-item 
+
+                .form-group.col-4-4-2
+                  .form-item 
+                    label.form-label Address Line 1 *
+                    +MdcTextField({ type: 'text', placeholder: 'Address Line 1' })
+                  .form-item 
+                    label.form-label Address Line 2 *
+                    +MdcTextField({ type: 'text', placeholder: 'Address Line 2' })
+                  .form-item 
+                    label.form-label Postal Code *
+                    +MdcTextField({ type: 'text', placeholder: 'Postal Code' })
+
+                .form-group.d-flex.enable-notification.flex-wrap.align-items-end
+                  .form-item
+                    label.form-label Contact Number *
+                    +MdcTextField({ type: 'text', placeholder: 'Contact Number' })
+                  .form-item.d-flex.align-items-center.justify-content-end.flex-wrap
+                    +MdcCheckbox({ label: 'Enable Notifications', id: 'enableNotifications' })
+                    +MdcTextField({ type: 'text', placeholder: 'No.' })
+                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select', 'Select 1', 'Select 2'] })
+                    label.form-label Before
+
+
+          .tab-expand-item.section-card-style
+            .tab-header.d-flex.justify-content-between.align-items-center.tab-expand-click-self
+              span Step 2: Description
+              img(src="./assets/icons/icon-angle-up-white.svg", alt="")
+            .tab-body 
+              form(action="#").custom-style-form
+                .form-group
+                  .form-item 
+                    +MdcTextField({ type: 'textarea', placeholder: 'Description here', isCounter: true, maxLength: 150 })
+
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
+
+        .upload-images.section-card-style 
+          .section-card-header.d-flex.align-items-center.justify-content-between 
+            span.card-title Images 
+          
+          form(action="#").custom-style-form
+            .form-group 
+              .form-item.upload-image.uploaded.upload-single-image
+                .upload-wrapper.s-250-250.d-flex.align-items-center.justify-content-center
+                  input(type="file")
+                  .upload-placeholder 
+                    img(src="./assets/icons/icon-image-gray.svg", alt="")
+                    |Upload Image
+                  .upload-image-value
+                    img(src="./assets/images/image-thumbnail.png", alt="")
+                    +MdcButton({ icon: './assets/icons/icon-delete-white.svg' })
+
+                .upload-wrapper-footer.d-flex.align-items-center
+                  label.form-label
+                    span Thumbnail Image *
+                    i (250 x 250px)
+                  +MdcButton({ isUpload: true, title: 'Change', isOutline: true })
+
+            .form-group 
+              .form-item.upload-image.upload-single-image
+                .upload-wrapper.s-350-250.d-flex.align-items-center.justify-content-center
+                  input(type="file")
+                  .upload-placeholder 
+                    img(src="./assets/icons/icon-image-gray.svg", alt="")
+                    |Upload Image
+                
+                label.form-label
+                  span Feature Banner Image *
+                  i (350 x 250px)
+
+        a(href="#").back-page.d-flex.align-items-center
+            img(src="./assets/icons/icon-arrow-left-brown.svg", alt="")
+            |Back to Events
