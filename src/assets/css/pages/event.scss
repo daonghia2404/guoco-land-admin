@@ -206,6 +206,7 @@
         flex: 0 0 80%;
         max-width: 80%;
 
+        .mdc-select,
         .mdc-text-field {
           max-width: 120px;
         }
@@ -216,10 +217,12 @@
         max-width: 100% !important;
         justify-content: flex-start !important;
       }
-
+      
+      .mdc-select,
       .mdc-text-field,
       .mdc-checkbox-wrapper {
-        margin-right: 15px;
+        margin: 0 15px 10px 0;
+
         @media (max-width: 1200px) {
           margin-bottom: 15px;
         }

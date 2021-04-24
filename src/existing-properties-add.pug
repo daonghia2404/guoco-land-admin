@@ -1,6 +1,7 @@
 extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
+  include includes/components/mdc-select.pug
   include includes/components/mdc-text-field.pug
 
   .app-main-body 
@@ -27,7 +28,7 @@ block pages
                     +MdcTextField({ type: 'text', placeholder: 'Property Name' })
                   .form-item 
                     label.form-label Property Type *
-                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select Type', 'Select Type 1', 'Select Type 2'] })
+                    +MdcSelect({ idLabel: 'select-type', idSelectedText: 'select-type', placeholder: 'Select Type',  dataSelectOptions: [{ title: 'Select Type 1', value: 'select-type-1' }, { title: 'Select Type 2', value: 'select-type-2' }] })
 
                 .form-group.col-4-6
                   .form-item 

@@ -1,0 +1,19 @@
+mixin MdcSelect(data)
+  .mdc-select.mdc-select--filled
+    .mdc-select__anchor(role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby=`${data.idLabel} ${data.idSelectedText}`)
+      span.mdc-select__ripple
+      .mdc-floating-label(id=`${data.idLabel}`)= data.placeholder
+      span.mdc-select__selected-text-container
+        span.mdc-select__selected-text(id=`${data.idSelectedText}`)
+      span.mdc-select__dropdown-icon
+        <svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg>
+      span.mdc-line-ripple
+
+    .mdc-select__menu.mdc-menu.mdc-menu-surface.mdc-menu-surface--fullwidth
+      ul.mdc-list(role="listbox" aria-label="Food picker listbox")
+        li.mdc-list-item.mdc-list-item--selected(aria-selected="true" data-value="" role="option")
+          span.mdc-list-item__ripple
+        each item in data.dataSelectOptions
+          li.mdc-list-item(aria-selected="false" data-value=`${item.value}` role="option")
+            span.mdc-list-item__ripple
+            span.mdc-list-item__text= item.title

@@ -1,6 +1,7 @@
 extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
+  include includes/components/mdc-select.pug
   include includes/components/mdc-text-field.pug
 
   .app-main-body 
@@ -12,9 +13,9 @@ block pages
         .table-main-wrapper 
           form(action="#").custom-style-form.table-main-header.d-flex.align-items-center.justify-content-between.flex-wrap
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcTextField({ type: 'date' })
-              +MdcTextField({ type: 'select', dataSelectOptions: ['Modules', 'Modules 1', 'Modules 2'] })
-              +MdcTextField({ type: 'select', dataSelectOptions: ['Status', 'Status 1', 'Status 2'] })
+              +MdcTextField({ type: 'date', placeholder: "Select Date", id: 'selectDate' })
+              +MdcSelect({ idLabel: 'modules', idSelectedText: 'modules', placeholder: 'Modules',  dataSelectOptions: [{ title: 'Modules 1', value: 'modules-1' }, { title: 'Modules 2', value: 'modules-2' }] })
+              +MdcSelect({ idLabel: 'status', idSelectedText: 'status', placeholder: 'Status',  dataSelectOptions: [{ title: 'Status 1', value: 'status-1' }, { title: 'Status 2', value: 'status-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
               +MdcButton({ icon: './assets/icons/icon-search.svg' })

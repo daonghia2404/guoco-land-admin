@@ -1,6 +1,7 @@
 extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
+  include includes/components/mdc-select.pug
   include includes/components/mdc-text-field.pug
   include includes/components/mdc-checkbox.pug
 
@@ -76,11 +77,11 @@ block pages
                 .form-group.col-5-5
                   .form-item 
                     label.form-label Zone *
-                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select Zone', 'Zone 1', 'Zone 2'] })
+                    +MdcSelect({ idLabel: 'select-zone', idSelectedText: 'select-zone', placeholder: 'Select Zone',  dataSelectOptions: [{ title: 'Select Zone 1', value: 'select-zone-1' }, { title: 'Select Zone 2', value: 'select-zone-2' }] })
 
                   .form-item 
                     label.form-label Category *
-                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select Category', 'Zone 1', 'Zone 2'] })
+                    +MdcSelect({ idLabel: 'select-category', idSelectedText: 'select-category', placeholder: 'Select Category',  dataSelectOptions: [{ title: 'Select Category 1', value: 'select-category-1' }, { title: 'Select Category 2', value: 'select-category-2' }] })
 
                 .form-group 
                   .form-item 

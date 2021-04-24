@@ -1,40 +1,58 @@
 window.onload = () => {
   tabEvent.init();
   // owlCarousel.init();
+  console.log(mdc)
   materialIo.init()
   menu.init()
   tabExpand.init()
+  chart.init()
 }
 
 const materialIo = {
-  init: function() {
+  init: function () {
     this.initButton()
     this.initTextField()
     this.initCheckboxes()
     this.initLists()
+    this.initSelect()
+    // this.initTable()
   },
-  initButton: function() {
+  initTable: function() {
+    const MDCDataTable = mdc.dataTable.MDCDataTable
+    const tables = document.querySelectorAll('.mdc-data-table')
+    tables.forEach((item, index) => {
+      const table = new MDCDataTable(item)
+    })
+  },
+  initSelect: function() {
+    const MDCSelect = mdc.select.MDCSelect
+    const selects = document.querySelectorAll('.mdc-select')
+    selects.forEach((item, index) => {
+      const select = new MDCSelect(item)
+    })
+  },
+  initButton: function () {
     const MDCRipple = mdc.ripple.MDCRipple
     const buttons = document.querySelectorAll('.mdc-button')
     buttons.forEach((item, index) => {
       const button = new MDCRipple(item)
     })
   },
-  initTextField: function() {
+  initTextField: function () {
     const MDCTextField = mdc.textField.MDCTextField
     const textFields = document.querySelectorAll('.mdc-text-field')
     textFields.forEach((item, index) => {
       const textField = new MDCTextField(item)
     })
   },
-  initCheckboxes: function() {
+  initCheckboxes: function () {
     const MDCCheckbox = mdc.checkbox.MDCCheckbox
     const checkboxesField = document.querySelectorAll('.mdc-checkbox')
     checkboxesField.forEach((item, index) => {
       const checkboxField = new MDCCheckbox(item)
     })
   },
-  initLists: function() {
+  initLists: function () {
     const MDCList = mdc.list.MDCList
     const MDCRipple = mdc.ripple.MDCRipple
     const lists = document.querySelectorAll('.mdc-list')
@@ -42,16 +60,16 @@ const materialIo = {
       const list = new MDCList(item)
       const listItemRipples = list.listElements.map((listItemEl) => new MDCRipple(listItemEl))
     })
-    
+
   }
 }
 
 const menu = {
-  init: function() {
+  init: function () {
     this.expandMenu()
     this.expandSubMenu()
   },
-  expandMenu: function() {
+  expandMenu: function () {
     const btnMenu = document.querySelector('header .header-btn-menu')
     const menuWrapper = document.querySelector('.app-menu-wrapper')
     if (btnMenu && menu) {
@@ -64,7 +82,7 @@ const menu = {
       })
     }
   },
-  expandSubMenu: function() {
+  expandSubMenu: function () {
     const lists = document.querySelectorAll('.app-menu .mdc-list .mdc-list-item')
     lists.forEach((item, index) => item.addEventListener('click', () => {
       const dataSubMenu = item.dataset.submenu
@@ -77,10 +95,10 @@ const menu = {
 }
 
 const tabExpand = {
-  init: function() {
+  init: function () {
     this.config()
   },
-  config: function() {
+  config: function () {
     const main = document.querySelectorAll('.tab-expand-group')
     main.forEach((item) => {
       let tabIndex = 0
@@ -108,6 +126,127 @@ const tabExpand = {
       }))
       showTabStep()
     })
+  },
+}
+
+const chart = {
+  init: function () {
+    this.configChartPrivileges()
+    this.configChartUser()
+  },
+  configChartPrivileges: function () {
+    const targetChart = document.querySelector('#chartPrivileges')
+    if (targetChart) {
+      const ctx = targetChart.getContext("2d")
+      const labels = ['10/20', '11/20', '12/20', '01/21', '02/21']
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, '#91783E');
+      gradient.addColorStop(1, '#bea66f4c')
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          data: [0, 5000, 2500, 7500, 10000],
+          fill: true,
+          backgroundColor: gradient,
+          borderColor: '#91783E',
+          borderWidth: 1,
+          tension: 0.4
+        }]
+      };
+      const config = {
+        type: 'line',
+        data: data,
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          elements: {
+            point: {
+              radius: 0
+            }
+          },
+          responsive: true,
+          scales: {
+            x: {
+              grid: {
+                borderColor: 'rgba(0,0,0,0.5)',
+                display: false,
+              }
+            },
+            y: {
+              grid: {
+                borderColor: 'rgba(0,0,0,0.5)',
+                display: false,
+              },
+              ticks: {
+                stepSize: 5000,
+              },
+            },
+          },
+        },
+      };
+      const myChart = new Chart(targetChart, config)
+    }
+  },
+  configChartUser: function () {
+    const targetChart = document.querySelector('#chartUser')
+    if (targetChart) {
+      const ctx = targetChart.getContext("2d")
+      const labels = ['10/20', '11/20', '12/20', '01/21', '02/21']
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, '#91783E');
+      gradient.addColorStop(1, '#bea66f4c')
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          data: [0, 2000, 3500, 6000, 10000],
+          fill: true,
+          backgroundColor: gradient,
+          borderColor: '#91783E',
+          borderWidth: 1,
+          tension: 0.4
+        }]
+      };
+      const config = {
+        type: 'line',
+        data: data,
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          elements: {
+            point: {
+              radius: 0
+            }
+          },
+          responsive: true,
+          scales: {
+            x: {
+              grid: {
+                borderColor: 'rgba(0,0,0,0.5)',
+                display: false,
+              }
+            },
+            y: {
+              grid: {
+                borderColor: 'rgba(0,0,0,0.5)',
+                display: false,
+              },
+              ticks: {
+                stepSize: 5000,
+              },
+            },
+          },
+        },
+      };
+      const myChart = new Chart(targetChart, config)
+    }
   },
 }
 

@@ -3,6 +3,7 @@ block pages
   include includes/components/mdc-button.pug
   include includes/components/mdc-text-field.pug
   include includes/components/mdc-checkbox.pug
+  include includes/components/mdc-select.pug
 
   .app-main-body 
     .app-body-header
@@ -25,7 +26,7 @@ block pages
                 .form-group 
                   .form-item 
                     label.form-label Event Title *
-                    +MdcTextField({ type: 'text', placeholder: 'Event Title' })
+                    +MdcTextField({ type: 'text', placeholder: 'Event Title', id: 'eventTitle' })
                 .form-group.col-2-2-2-2-2
                   .form-item 
                     label.form-label Start Date *
@@ -59,8 +60,13 @@ block pages
                   .form-item.d-flex.align-items-center.justify-content-end.flex-wrap
                     +MdcCheckbox({ label: 'Enable Notifications', id: 'enableNotifications' })
                     +MdcTextField({ type: 'text', placeholder: 'No.' })
-                    +MdcTextField({ type: 'select', dataSelectOptions: ['Select', 'Select 1', 'Select 2'] })
+                    +MdcSelect({ idLabel: 'select', idSelectedText: 'select', placeholder: 'Select',  dataSelectOptions: [{ title: 'Select 1', value: 'select-1' }, { title: 'Select 2', value: 'select-2' }] })
                     label.form-label Before
+                
+                .form-group 
+                  .form-item 
+                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
+
 
 
           .tab-expand-item.section-card-style
@@ -73,9 +79,6 @@ block pages
                   .form-item 
                     +MdcTextField({ type: 'textarea', placeholder: 'Description here', isCounter: true, maxLength: 150 })
 
-                .form-group 
-                  .form-item 
-                    +MdcButton({ title: 'Next', className: 'tab-expand-click-next' })
 
         .upload-images.section-card-style 
           .section-card-header.d-flex.align-items-center.justify-content-between 

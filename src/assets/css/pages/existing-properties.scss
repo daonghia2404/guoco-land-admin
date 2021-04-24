@@ -61,9 +61,12 @@
 
     &.file-upload {
       @media (min-width: 992px) {
-        height: 100%;
+        height: calc(100% - 100px);
       }
-      flex: 1;
+    }
+
+    &.delete-property {
+      height: auto;
     }
 
     &.images {

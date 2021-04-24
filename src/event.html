@@ -74,17 +74,21 @@
           <div class="table-main-wrapper"> 
             <form class="custom-style-form table-main-header d-flex align-items-center justify-content-between flex-wrap" action="#">
               <div class="header-item d-flex align-items-center flex-wrap">
-                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label mdc-input-date   "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" type="date" placeholder=""><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt="">
+                    <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="selectDate">Select Date</span>
+                      <input class="mdc-text-field__input" type="date" aria-labelledby="selectDate"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
                     </label>
-                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label  mdc-select  "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" style="display: none;">
-                      <select class="mdc-text-field__select">
-                        <option value="Status">Status</option>
-                        <option value="Status 1">Status 1</option>
-                        <option value="Status 2">Status 2</option>
-                      </select><img class="icon-select" src="./assets/icons/icon-angle-down-gray.svg" alt="">
-                    </label>
+                    <div class="mdc-select mdc-select--filled">
+                      <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="status status"><span class="mdc-select__ripple"></span>
+                        <div class="mdc-floating-label" id="status">Status</div><span class="mdc-select__selected-text-container"><span class="mdc-select__selected-text" id="status"></span></span><span class="mdc-select__dropdown-icon"><svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg></span><span class="mdc-line-ripple"></span>
+                      </div>
+                      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                        <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                          <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option"><span class="mdc-list-item__ripple"></span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="status-1" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Status 1</span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="status-2" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Status 2</span></li>
+                        </ul>
+                      </div>
+                    </div>
               </div>
               <div class="header-item d-flex align-items-center flex-wrap">
                     <button class="mdc-button-wrapper  ">
@@ -232,6 +236,7 @@
         </div>
       </div>
     </div><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"> </script>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

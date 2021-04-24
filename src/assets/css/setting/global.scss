@@ -48,7 +48,9 @@ a {
   flex: 1;
 
   .section-card-style {
-    height: 100%;
+    @media (min-width: 992px) {
+      height: 100%;
+    }
   }
 }
 
@@ -168,11 +170,7 @@ a {
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-
-    &:not(:last-of-type) {
-      margin-bottom: 20px;
-    }
-
+    margin-bottom: 0;
     &.auto {
       .form-item {
         flex: 0 0 auto;
@@ -204,6 +202,7 @@ a {
       flex: 0 0 100%;
       max-width: 100%;
       position: relative;
+      margin-bottom: 15px;
 
       .mdc-checkbox-wrapper {
         label {
@@ -492,18 +491,52 @@ a {
     }
   }
 
+  .mdc-select,
   .mdc-text-field {
-    height: 40px;
     width: 100%;
-    padding: 8px 15px;
-    border-bottom: 1px solid $black;
     background: transparent;
+    .mdc-floating-label {
+      font-size: 14px;
+    }
 
     .mdc-text-field__input {
       font-size: 14px;
 
       &::placeholder {
         color: rgba(0, 0, 0, 0.55);
+      }
+    }
+  }
+
+  .mdc-text-field {
+    &:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label {
+      color: $primary-dark;
+    }
+  }
+
+  .mdc-select {
+    &:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+      color: $primary-dark;
+    }
+    .mdc-select__anchor {
+      background: transparent;
+    }
+    &.mdc-select--focused {
+      .mdc-select__dropdown-icon {
+        transform: rotate(180deg);
+      }
+    }
+    .mdc-select__dropdown-icon {
+      transition: 0.3s ease;
+    }
+    .mdc-select__selected-text {
+      font-size: 14px;
+    }
+    .mdc-list {
+      .mdc-list-item {
+        .mdc-list-item__text {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -526,7 +559,6 @@ a {
   .mdc-time,
   .mdc-input-date {
     position: relative;
-    height: 40px;
 
     .icon-select,
     .icon-date {
@@ -538,6 +570,11 @@ a {
     }
 
     input {
+      &::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+      &::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+      &::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+        color: transparent;
+      }
 
       &::-webkit-inner-spin-button,
       &::-webkit-calendar-picker-indicator {
@@ -557,38 +594,17 @@ a {
 
   .mdc-textarea {
     height: auto;
-    min-height: 170px;
+    padding: 20px 16px;
+    .mdc-floating-label {
+      top: 25px;
+    }
+    .mdc-text-field__input {
+      min-height: 170px;
+    }
 
     textarea,
     .mdc-text-field__resizer {
       resize: none;
-    }
-  }
-
-  .mdc-select {
-    position: relative;
-    padding: 0;
-    height: 40px;
-
-    .icon-select {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    select {
-      background: transparent;
-      outline: none;
-      border-radius: 0;
-      border: none;
-      height: 100%;
-      font-size: 14px;
-      width: 100%;
-      padding: 8px 15px;
-      appearance: none;
-      -webkit-appearance: none;
     }
   }
 }

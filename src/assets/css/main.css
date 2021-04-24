@@ -346,8 +346,9 @@ a {
 
 .half-section {
   flex: 1; }
-  .half-section .section-card-style {
-    height: 100%; }
+  @media (min-width: 992px) {
+    .half-section .section-card-style {
+      height: 100%; } }
 
 .section-card-style {
   padding: 15px 20px;
@@ -426,9 +427,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap; }
-  .custom-style-form .form-group:not(:last-of-type) {
-    margin-bottom: 20px; }
+  flex-wrap: wrap;
+  margin-bottom: 0; }
   .custom-style-form .form-group.auto .form-item {
     flex: 0 0 auto; }
   .custom-style-form .form-group.picker-time .form-item:first-of-type, .custom-style-form .form-group.picker-time .form-item:last-of-type {
@@ -443,7 +443,8 @@ a {
   .custom-style-form .form-group .form-item {
     flex: 0 0 100%;
     max-width: 100%;
-    position: relative; }
+    position: relative;
+    margin-bottom: 15px; }
     .custom-style-form .form-group .form-item .mdc-checkbox-wrapper label {
       font-size: 14px; }
     .custom-style-form .form-group .form-item .checkbox-group .mdc-checkbox-wrapper {
@@ -629,16 +630,40 @@ a {
     display: block;
     margin-bottom: 10px; }
 
+.custom-style-form .mdc-select,
 .custom-style-form .mdc-text-field {
-  height: 40px;
   width: 100%;
-  padding: 8px 15px;
-  border-bottom: 1px solid #000;
   background: transparent; }
+  .custom-style-form .mdc-select .mdc-floating-label,
+  .custom-style-form .mdc-text-field .mdc-floating-label {
+    font-size: 14px; }
+  .custom-style-form .mdc-select .mdc-text-field__input,
   .custom-style-form .mdc-text-field .mdc-text-field__input {
     font-size: 14px; }
+    .custom-style-form .mdc-select .mdc-text-field__input::placeholder,
     .custom-style-form .mdc-text-field .mdc-text-field__input::placeholder {
       color: rgba(0, 0, 0, 0.55); }
+
+.custom-style-form .mdc-text-field:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label {
+  color: #866E5C; }
+
+.custom-style-form .mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+  color: #866E5C; }
+
+.custom-style-form .mdc-select .mdc-select__anchor {
+  background: transparent; }
+
+.custom-style-form .mdc-select.mdc-select--focused .mdc-select__dropdown-icon {
+  transform: rotate(180deg); }
+
+.custom-style-form .mdc-select .mdc-select__dropdown-icon {
+  transition: 0.3s ease; }
+
+.custom-style-form .mdc-select .mdc-select__selected-text {
+  font-size: 14px; }
+
+.custom-style-form .mdc-select .mdc-list .mdc-list-item .mdc-list-item__text {
+  font-size: 14px; }
 
 .custom-style-form .mdc-button {
   height: 40px;
@@ -653,8 +678,7 @@ a {
 
 .custom-style-form .mdc-time,
 .custom-style-form .mdc-input-date {
-  position: relative;
-  height: 40px; }
+  position: relative; }
   .custom-style-form .mdc-time .icon-select,
   .custom-style-form .mdc-time .icon-date,
   .custom-style-form .mdc-input-date .icon-select,
@@ -664,6 +688,11 @@ a {
     right: 20px;
     transform: translateY(-50%);
     pointer-events: none; }
+  .custom-style-form .mdc-time input::-webkit-datetime-edit-year-field:not([aria-valuenow]), .custom-style-form .mdc-time input::-webkit-datetime-edit-month-field:not([aria-valuenow]), .custom-style-form .mdc-time input::-webkit-datetime-edit-day-field:not([aria-valuenow]),
+  .custom-style-form .mdc-input-date input::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+  .custom-style-form .mdc-input-date input::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+  .custom-style-form .mdc-input-date input::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+    color: transparent; }
   .custom-style-form .mdc-time input::-webkit-inner-spin-button, .custom-style-form .mdc-time input::-webkit-calendar-picker-indicator,
   .custom-style-form .mdc-input-date input::-webkit-inner-spin-button,
   .custom-style-form .mdc-input-date input::-webkit-calendar-picker-indicator {
@@ -683,32 +712,14 @@ a {
 
 .custom-style-form .mdc-textarea {
   height: auto;
-  min-height: 170px; }
+  padding: 20px 16px; }
+  .custom-style-form .mdc-textarea .mdc-floating-label {
+    top: 25px; }
+  .custom-style-form .mdc-textarea .mdc-text-field__input {
+    min-height: 170px; }
   .custom-style-form .mdc-textarea textarea,
   .custom-style-form .mdc-textarea .mdc-text-field__resizer {
     resize: none; }
-
-.custom-style-form .mdc-select {
-  position: relative;
-  padding: 0;
-  height: 40px; }
-  .custom-style-form .mdc-select .icon-select {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    pointer-events: none; }
-  .custom-style-form .mdc-select select {
-    background: transparent;
-    outline: none;
-    border-radius: 0;
-    border: none;
-    height: 100%;
-    font-size: 14px;
-    width: 100%;
-    padding: 8px 15px;
-    appearance: none;
-    -webkit-appearance: none; }
 
 .mdc-button-wrapper {
   outline: none;
@@ -1227,11 +1238,11 @@ header.header {
     .existing-properties-detail-page .section-card-style.description {
       flex: 0 0 calc(40% - 15px);
       max-width: calc(40% - 15px); }
-    .existing-properties-detail-page .section-card-style.file-upload {
-      flex: 1; }
-      @media (min-width: 992px) {
-        .existing-properties-detail-page .section-card-style.file-upload {
-          height: 100%; } }
+    @media (min-width: 992px) {
+      .existing-properties-detail-page .section-card-style.file-upload {
+        height: calc(100% - 100px); } }
+    .existing-properties-detail-page .section-card-style.delete-property {
+      height: auto; }
     .existing-properties-detail-page .section-card-style.images {
       flex: 0 0 calc(60% - 15px);
       max-width: calc(60% - 15px); }
@@ -1423,6 +1434,7 @@ header.header {
   .event-add-page .enable-notification .form-item:nth-of-type(2) {
     flex: 0 0 80%;
     max-width: 80%; }
+    .event-add-page .enable-notification .form-item:nth-of-type(2) .mdc-select,
     .event-add-page .enable-notification .form-item:nth-of-type(2) .mdc-text-field {
       max-width: 120px; }
   @media (max-width: 1200px) {
@@ -1430,10 +1442,12 @@ header.header {
       flex: 0 0 100% !important;
       max-width: 100% !important;
       justify-content: flex-start !important; } }
+  .event-add-page .enable-notification .form-item .mdc-select,
   .event-add-page .enable-notification .form-item .mdc-text-field,
   .event-add-page .enable-notification .form-item .mdc-checkbox-wrapper {
-    margin-right: 15px; }
+    margin: 0 15px 10px 0; }
     @media (max-width: 1200px) {
+      .event-add-page .enable-notification .form-item .mdc-select,
       .event-add-page .enable-notification .form-item .mdc-text-field,
       .event-add-page .enable-notification .form-item .mdc-checkbox-wrapper {
         margin-bottom: 15px; } }
