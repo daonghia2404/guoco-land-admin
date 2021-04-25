@@ -1,0 +1,32 @@
+.modal.fade(tabindex="-1" role="dialog")#modal-mailbox-reply
+  .modal-dialog(role="document").modal-dialog-centered
+    .modal-content 
+      .modal-header.d-flex.align-items-center.justify-content-between
+        h5.modal-title Reply
+        .mailbox-date 
+          p Received On: 05 Feb 2021, 10:21AM
+          p Status Updated On
+      .modal-body 
+        .mailbox-wrapper 
+          .mailbox-header
+            p Sender: #[strong Alan Tan]
+            p Enquiry Type: #[strong Privileges]
+            p Subject: #[strong Questions Regarding Redemption]
+            .tag-label-group
+              .tag-item.new New!
+          .mailbox-body 
+            .mailbox-message-wrapper
+              .mailbox-message
+                p Dear GuocoLand 
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellat, autem laudantium consequuntur velit tempora odit animi unde harum et soluta debitis quis libero fugiat officiis itaque. Aut, eos nesciunt.
+                p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, adipisci quibusdam porro sapiente minima assumenda! Animi eum error recusandae blanditiis ipsum, a pariatur, itaque repellendus neque ut corporis voluptates fugiat.
+                p.mb-0 Regards,
+                p Alan Tan
+              .mailbox-time Received on 05 Feb 2021, 10:21AM
+
+          .mailbox-footer
+            form(action="#").custom-style-form
+              .form-group 
+                .form-item.d-flex
+                  +MdcTextField({ type: 'textarea', placeholder: 'Reply' })
+                  +MdcButton({ title: 'Send', icon: './assets/icons/icon-mail-send-white.svg' })

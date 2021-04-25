@@ -28,33 +28,39 @@ block pages
                     +MdcTextField({ type: 'text', placeholder: 'Role Name' })
 
                 .form-group.d-flex.flex-wrap.checkbox-group.auto
-                  .form-item 
-                    +MdcCheckbox({ label: 'Users', id: 'users' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'Users', id: 'users' })
                     .checkbox-child 
                       +MdcCheckbox({ label: 'All Users', id: 'all-users' })
                       +MdcCheckbox({ label: 'Reference Codes', id: 'reference-code' })
-                  .form-item 
-                    +MdcCheckbox({ label: 'Discover', id: 'discover' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'Discover', id: 'discover' })
                     .checkbox-child 
                       +MdcCheckbox({ label: 'Existing Properties', id: 'existing-properties' })
                       +MdcCheckbox({ label: 'Upcoming Launches', id: 'upcoming-launches' })
                       +MdcCheckbox({ label: 'Media Coverage', id: 'media-coverage' })
                       +MdcCheckbox({ label: 'Contact Info', id: 'contact-info' })
 
-                  .form-item 
-                    +MdcCheckbox({ label: 'Merchants', id: 'merchants' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'Merchants', id: 'merchants' })
                     .checkbox-child 
                       +MdcCheckbox({ label: 'All Merchants', id: 'all-merchants' })
                       +MdcCheckbox({ label: 'All Privileges', id: 'all-privileges' })
-                  .form-item 
-                    +MdcCheckbox({ label: 'Events', id: 'events' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'Events', id: 'events' })
                     +MdcCheckbox({ label: 'Communications', id: 'communications' })
                     +MdcCheckbox({ label: 'Reports', id: 'reports' })
-                  .form-item 
-                    +MdcCheckbox({ label: 'FAQ', id: 'FAQ' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'FAQ', id: 'FAQ' })
                     +MdcCheckbox({ label: 'Mailbox', id: 'mailbox' })
-                  .form-item 
-                    +MdcCheckbox({ label: 'Backend Access', id: 'backend-access' })
+                  .form-item.checkboxes-group-wrapper
+                    .checkbox-parent 
+                      +MdcCheckbox({ label: 'Backend Access', id: 'backend-access' })
                     .checkbox-child 
                       +MdcCheckbox({ label: 'Access List', id: 'access-list' })
                       +MdcCheckbox({ label: 'Role List', id: 'role-list' })

@@ -16,8 +16,16 @@
         <div class="header-item">
           <div class="header-btn-menu"> <img src="./assets/icons/icon-menu-brown.svg" alt=""></div>
         </div>
-        <div class="header-item d-flex align-items-center"> <a class="item-mail" href="#"><img src="./assets/icons/icon-email.svg" alt=""></a>
-          <div class="item-account d-flex align-items-center"> <span class="account-name">John Smith </span><img src="./assets/icons/icon-angle-down.svg" alt=""></div>
+        <div class="header-item d-flex align-items-center"><a class="item-mail" href="#"><img src="./assets/icons/icon-email.svg" alt=""></a>
+          <div class="dropdown">
+            <button class="item-account d-flex align-items-center dropdown-toggle" id="accountDropdown" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"> <span class="account-name">John Smith </span><img src="./assets/icons/icon-angle-down.svg" alt=""></button>
+            <div class="header-dropwdown dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+              <ul class="mdc-list">
+                <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><a class="mdc-list-item__text" href="#">Change Password</a></li>
+                <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><a class="mdc-list-item__text" href="#">Log out</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -64,25 +72,121 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-faq-category">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content"> 
+          <div class="modal-header"> 
+            <h5 class="modal-title">New FAQ Category</h5>
+          </div>
+          <div class="modal-body"> 
+            <form class="custom-style-form" action="#">
+              <div class="form-group"> 
+                <div class="form-item"> 
+                  <div class="form-label">Category Name</div>
+                      <label class="mdc-text-field mdc-text-field--filled"><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Category Name</span>
+                        <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="form-group justify-content-center" data-dismiss="modal">
+                    <button class="mdc-button-wrapper m-2">
+                          <div class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label">Cancel</span>
+                          </div>
+                    </button>
+                    <button class="mdc-button-wrapper m-2">
+                          <div class="mdc-button mdc-button--raised">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label">Save</span>
+                          </div>
+                    </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-faq-add">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content"> 
+          <div class="modal-header"> 
+            <h5 class="modal-title">New FAQ</h5>
+          </div>
+          <div class="modal-body"> 
+            <form class="custom-style-form" action="#">
+              <div class="form-group"> 
+                <div class="form-item"> 
+                  <div class="form-label">Category *</div>
+                      <div class="mdc-select mdc-select--filled">
+                        <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="category category"><span class="mdc-select__ripple"></span>
+                          <div class="mdc-floating-label" id="category">Select Category</div><span class="mdc-select__selected-text-container"><span class="mdc-select__selected-text" id="category"></span></span><span class="mdc-select__dropdown-icon"><svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg></span><span class="mdc-line-ripple"></span>
+                        </div>
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                          <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                            <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option"><span class="mdc-list-item__ripple"></span></li>
+                            <li class="mdc-list-item" aria-selected="false" data-value="category-1" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Category 1</span></li>
+                            <li class="mdc-list-item" aria-selected="false" data-value="category-2" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Category 2</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+              </div>
+              <div class="form-group"> 
+                <div class="form-item"> 
+                  <div class="form-label">Question *</div>
+                      <label class="mdc-text-field mdc-text-field--filled"><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Question</span>
+                        <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="form-group"> 
+                <div class="form-item"> 
+                      <label class="mdc-text-field mdc-text-field--filled mdc-textarea"><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Answer</span><span class="mdc-text-field__resizer">
+                          <textarea class="mdc-text-field__input" maxlength="undefined" aria-labelledby="" aria-label="Label"></textarea></span><span class="mdc-line-ripple"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="form-group justify-content-center" data-dismiss="modal">
+                    <button class="mdc-button-wrapper m-2">
+                          <div class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label">Cancel</span>
+                          </div>
+                    </button>
+                    <button class="mdc-button-wrapper m-2">
+                          <div class="mdc-button mdc-button--raised">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label">Save</span>
+                          </div>
+                    </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="app-main-body"> 
+          <div class="mdc-tooltip" role="tooltip" aria-hidden="true" id="tooltip-search">
+            <div class="mdc-tooltip__surface">Search</div>
+          </div>
+          <div class="mdc-tooltip" role="tooltip" aria-hidden="true" id="tooltip-download">
+            <div class="mdc-tooltip__surface">Download</div>
+          </div>
       <div class="app-body-header">
         <div class="app-des">FAQ</div>
         <div class="app-title d-flex align-items-center justify-content-between">FAQ
           <div class="button-group d-flex custom-style-form table-main-wrapper">
-                <button class="mdc-button-wrapper mr-2">
-                  <div class="mdc-button mdc-btn-only-icon">
-                    <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-search.svg" alt=""></span>
-                  </div>
+                <button class="mdc-button-wrapper mr-2" aria-describedby="tooltip-search">
+                      <div class="mdc-button mdc-btn-only-icon">
+                        <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-search.svg" alt=""></span>
+                      </div>
                 </button>
-                <button class="mdc-button-wrapper mr-2">
-                  <div class="mdc-button mdc-btn-only-icon">
-                    <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-download.svg" alt=""></span>
-                  </div>
+                <button class="mdc-button-wrapper mr-2" aria-describedby="tooltip-download">
+                      <div class="mdc-button mdc-btn-only-icon">
+                        <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-download.svg" alt=""></span>
+                      </div>
                 </button>
-                <button class="mdc-button-wrapper">
-                  <div class="mdc-button mdc-button--raised">
-                    <div class="mdc-button__ripple"></div><span class="mdc-button__label">Add New</span>
-                  </div>
+                <button class="mdc-button-wrapper" data-toggle="modal" data-target="#modal-faq-add">
+                      <div class="mdc-button mdc-button--raised">
+                        <div class="mdc-button__ripple"></div><span class="mdc-button__label">Add New</span>
+                      </div>
                 </button>
           </div>
         </div>
@@ -97,10 +201,10 @@
                 <div class="tab-item d-flex align-items-center">Personal Data & Information</div>
               </div>
               <div class="custom-style-form d-flex justify-content-center">
-                    <button class="mdc-button-wrapper">
-                      <div class="mdc-button mdc-button--outlined">
-                        <div class="mdc-button__ripple"></div><span class="mdc-button__label">Add Category</span>
-                      </div>
+                    <button class="mdc-button-wrapper" data-toggle="modal" data-target="#modal-faq-category">
+                          <div class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label">Add Category</span>
+                          </div>
                     </button>
               </div>
             </div>
@@ -114,14 +218,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -132,14 +236,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -150,14 +254,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -168,14 +272,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -186,14 +290,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -208,14 +312,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -226,14 +330,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -244,14 +348,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -262,14 +366,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -280,14 +384,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -302,14 +406,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -320,14 +424,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -338,14 +442,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -356,14 +460,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -374,14 +478,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque odit in minima rem. Asperiores sed doloribus facilis iusto laboriosam eligendi est alias laudantium, quaerat inventore sequi error quisquam ratione.</p>
                     <div class="custom-style-form d-flex justify-content-end">
                           <button class="mdc-button-wrapper mr-2">
-                            <div class="mdc-button mdc-button--outlined">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
-                            </div>
+                                <div class="mdc-button mdc-button--outlined">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Delete</span>
+                                </div>
                           </button>
                           <button class="mdc-button-wrapper">
-                            <div class="mdc-button mdc-button--raised">
-                              <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
-                            </div>
+                                <div class="mdc-button mdc-button--raised">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Edit</span>
+                                </div>
                           </button>
                     </div>
                   </div>
@@ -391,7 +495,10 @@
           </div>
         </div>
       </div>
-    </div><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"> </script><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"> </script>
     <script src="./assets/js/main.js"></script>
   </body>

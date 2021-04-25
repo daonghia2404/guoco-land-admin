@@ -1,0 +1,72 @@
+extends includes/layout/layout.pug
+block pages
+  include includes/components/mdc-button.pug
+  include includes/components/mdc-select.pug
+  include includes/components/mdc-tooltip.pug
+  include includes/components/mdc-text-field.pug
+  include includes/components/mdc-checkbox.pug
+
+  .app-main-body 
+    +MdcTooltip({ title: 'Table', id: 'tooltip-table' })
+    +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
+    +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
+
+    .app-body-header
+      .app-des Discover / #[strong Existing Properties]
+      .app-title.d-flex.align-items-center.justify-content-between
+        |Existing Properties
+        .button-group.d-flex.custom-style-form.table-main-wrapper
+          +MdcButton({ icon: './assets/icons/icon-list-gray.svg', tooltipId: 'tooltip-table', className: 'mr-2' })
+          +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search', className: 'mr-2' })
+          +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download', className: 'mr-2' })
+          +MdcButton({ title: 'Add Event' })
+    .app-body-main
+      .lists-page-wrapper.d-flex.flex-wrap.align-items-start
+        .list-items.action 
+          .section-card-style 
+            form(action="#").custom-style-form
+              .form-group
+                .form-item 
+                  +MdcTextField({ type: 'date', placeholder: "Launch Date", id: 'selectDate' })
+
+              .line
+
+              .form-group.d-block.checkbox-group.tab-expand-group
+                .form-item.tab-expand-click-self.tab-expand-item.checkboxes-group-wrapper
+                  .tab-header.d-flex.align-items-center.justify-content-between.checkbox-parent
+                    +MdcCheckbox({ label: 'All Zones', id: 'all-zones' })
+                    img(src="./assets/icons/icon-angle-up-gray.svg", alt="")
+
+                  .checkbox-child.tab-body 
+                    +MdcCheckbox({ label: 'Zones 1', id: 'zones-1' })
+                    +MdcCheckbox({ label: 'Zones 2', id: 'zones-2' })
+                    +MdcCheckbox({ label: 'Zones 3', id: 'zones-3' })
+                    +MdcCheckbox({ label: 'Zones 4', id: 'zones-4' })
+                    +MdcCheckbox({ label: 'Zones 5', id: 'zones-5' })
+                    +MdcCheckbox({ label: 'Zones 6', id: 'zones-6' })
+
+                .form-item.tab-expand-click-self.tab-expand-item.checkboxes-group-wrapper
+                  .tab-header.d-flex.align-items-center.justify-content-between.checkbox-parent
+                    +MdcCheckbox({ label: 'All Statuses', id: 'all-statuses' })
+                    img(src="./assets/icons/icon-angle-up-gray.svg", alt="")
+
+                  .checkbox-child.tab-body 
+                    +MdcCheckbox({ label: 'Status 1', id: 'status-1' })
+                    +MdcCheckbox({ label: 'Status 2', id: 'status-2' })
+                    +MdcCheckbox({ label: 'Status 3', id: 'status-3' })
+                    +MdcCheckbox({ label: 'Status 4', id: 'status-4' })
+                    +MdcCheckbox({ label: 'Status 5', id: 'status-5' })
+                    +MdcCheckbox({ label: 'Status 6', id: 'status-6' })
+
+        .list-items.lists.d-flex.flex-wrap 
+          each item in [1,2,3]
+            .section-card-style.d-flex.align-items-center.flex-wrap
+              .card-image 
+                img(src="./assets/images/image-thumbnail.png", alt="")
+              .card-content.section-card-body
+                .card-title.big Wine Tasting Event
+                .card-des Upcoming
+                .card-des 01/03/2021
+                .card-des 10:30AM - 02:30PM
+                .card-des 8 Martin Place, Martin Modern, Function Room, S237992
+                a(href="tel: 9876 5432").card-link 9876 5432

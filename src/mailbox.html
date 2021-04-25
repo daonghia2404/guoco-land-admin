@@ -16,8 +16,16 @@
         <div class="header-item">
           <div class="header-btn-menu"> <img src="./assets/icons/icon-menu-brown.svg" alt=""></div>
         </div>
-        <div class="header-item d-flex align-items-center"> <a class="item-mail" href="#"><img src="./assets/icons/icon-email.svg" alt=""></a>
-          <div class="item-account d-flex align-items-center"> <span class="account-name">John Smith </span><img src="./assets/icons/icon-angle-down.svg" alt=""></div>
+        <div class="header-item d-flex align-items-center"><a class="item-mail" href="#"><img src="./assets/icons/icon-email.svg" alt=""></a>
+          <div class="dropdown">
+            <button class="item-account d-flex align-items-center dropdown-toggle" id="accountDropdown" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false"> <span class="account-name">John Smith </span><img src="./assets/icons/icon-angle-down.svg" alt=""></button>
+            <div class="header-dropwdown dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+              <ul class="mdc-list">
+                <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><a class="mdc-list-item__text" href="#">Change Password</a></li>
+                <li class="mdc-list-item"><span class="mdc-list-item__ripple"></span><a class="mdc-list-item__text" href="#">Log out</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -64,7 +72,66 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-mailbox-reply">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content"> 
+          <div class="modal-header d-flex align-items-center justify-content-between">
+            <h5 class="modal-title">Reply</h5>
+            <div class="mailbox-date"> 
+              <p>Received On: 05 Feb 2021, 10:21AM</p>
+              <p>Status Updated On</p>
+            </div>
+          </div>
+          <div class="modal-body"> 
+            <div class="mailbox-wrapper"> 
+              <div class="mailbox-header">
+                <p>Sender: <strong>Alan Tan</strong></p>
+                <p>Enquiry Type: <strong>Privileges</strong></p>
+                <p>Subject: <strong>Questions Regarding Redemption</strong></p>
+                <div class="tag-label-group">
+                  <div class="tag-item new">New!</div>
+                </div>
+              </div>
+              <div class="mailbox-body"> 
+                <div class="mailbox-message-wrapper">
+                  <div class="mailbox-message">
+                    <p>Dear GuocoLand </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellat, autem laudantium consequuntur velit tempora odit animi unde harum et soluta debitis quis libero fugiat officiis itaque. Aut, eos nesciunt.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, adipisci quibusdam porro sapiente minima assumenda! Animi eum error recusandae blanditiis ipsum, a pariatur, itaque repellendus neque ut corporis voluptates fugiat.</p>
+                    <p class="mb-0">Regards,</p>
+                    <p>Alan Tan</p>
+                  </div>
+                  <div class="mailbox-time">Received on 05 Feb 2021, 10:21AM</div>
+                </div>
+              </div>
+              <div class="mailbox-footer">
+                <form class="custom-style-form" action="#">
+                  <div class="form-group"> 
+                    <div class="form-item d-flex">
+                          <label class="mdc-text-field mdc-text-field--filled   mdc-textarea "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Reply</span><span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" maxlength="undefined" aria-labelledby="" aria-label="Label"></textarea></span><span class="mdc-line-ripple"></span>
+                          </label>
+                          <button class="mdc-button-wrapper  ">
+                                <div class="mdc-button mdc-button--raised  ">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Send</span><span class="mdc-button__label"> <img src="./assets/icons/icon-mail-send-white.svg" alt=""></span>
+                                </div>
+                          </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="app-main-body"> 
+          <div class="mdc-tooltip" role="tooltip" aria-hidden="true" id="tooltip-search">
+            <div class="mdc-tooltip__surface">Search</div>
+          </div>
+          <div class="mdc-tooltip" role="tooltip" aria-hidden="true" id="tooltip-download">
+            <div class="mdc-tooltip__surface">Download</div>
+          </div>
       <div class="app-body-header">
         <div class="app-des">Mailbox</div>
         <div class="app-title">All Mail</div>
@@ -74,29 +141,47 @@
           <div class="table-main-wrapper"> 
             <form class="custom-style-form table-main-header d-flex align-items-center justify-content-between flex-wrap" action="#">
               <div class="header-item d-flex align-items-center flex-wrap">
-                    <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" type="date" aria-labelledby=""><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="dateReceived">Date Received</span>
+                      <input class="mdc-text-field__input" type="date" aria-labelledby="dateReceived"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
                     </label>
-                    <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" type="date" aria-labelledby=""><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="statusUpdateDate">Status Update Date</span>
+                      <input class="mdc-text-field__input" type="date" aria-labelledby="statusUpdateDate"><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
                     </label>
-                    <label class="mdc-text-field mdc-text-field--filled  mdc-select  "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" type="select" aria-labelledby=""><span class="mdc-line-ripple"></span>
-                    </label>
-                    <label class="mdc-text-field mdc-text-field--filled  mdc-select  "><span class="mdc-text-field__ripple"></span>
-                      <input class="mdc-text-field__input" type="select" aria-labelledby=""><span class="mdc-line-ripple"></span>
-                    </label>
+                    <div class="mdc-select mdc-select--filled">
+                      <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="status status"><span class="mdc-select__ripple"></span>
+                        <div class="mdc-floating-label" id="status">Status</div><span class="mdc-select__selected-text-container"><span class="mdc-select__selected-text" id="status"></span></span><span class="mdc-select__dropdown-icon"><svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg></span><span class="mdc-line-ripple"></span>
+                      </div>
+                      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                        <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                          <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option"><span class="mdc-list-item__ripple"></span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="status-1" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Status 1</span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="status-2" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Status 2</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="mdc-select mdc-select--filled">
+                      <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="enquiry-type enquiry-type"><span class="mdc-select__ripple"></span>
+                        <div class="mdc-floating-label" id="enquiry-type">Enquiry Type</div><span class="mdc-select__selected-text-container"><span class="mdc-select__selected-text" id="enquiry-type"></span></span><span class="mdc-select__dropdown-icon"><svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg></span><span class="mdc-line-ripple"></span>
+                      </div>
+                      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                        <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                          <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" data-value="" role="option"><span class="mdc-list-item__ripple"></span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="enquiry-type-1" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Enquiry Type 1</span></li>
+                          <li class="mdc-list-item" aria-selected="false" data-value="enquiry-type-2" role="option"><span class="mdc-list-item__ripple"></span><span class="mdc-list-item__text">Enquiry Type 2</span></li>
+                        </ul>
+                      </div>
+                    </div>
               </div>
               <div class="header-item d-flex align-items-center flex-wrap">
-                    <button class="mdc-button-wrapper  ">
-                      <div class="mdc-button   mdc-btn-only-icon">
-                        <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-search.svg" alt=""></span>
-                      </div>
+                    <button class="mdc-button-wrapper  " aria-describedby="tooltip-search">
+                          <div class="mdc-button   mdc-btn-only-icon">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-search.svg" alt=""></span>
+                          </div>
                     </button>
-                    <button class="mdc-button-wrapper  ">
-                      <div class="mdc-button   mdc-btn-only-icon">
-                        <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-download.svg" alt=""></span>
-                      </div>
+                    <button class="mdc-button-wrapper  " aria-describedby="tooltip-download">
+                          <div class="mdc-button   mdc-btn-only-icon">
+                            <div class="mdc-button__ripple"></div><span class="mdc-button__label"> <img src="./assets/icons/icon-download.svg" alt=""></span>
+                          </div>
                     </button>
               </div>
             </form>
@@ -126,7 +211,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr>
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -139,7 +226,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="disabled">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -152,7 +241,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="bold">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -165,7 +256,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr>
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -178,7 +271,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="disabled">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -191,7 +286,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="bold">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -204,7 +301,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr>
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -217,7 +316,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="disabled">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -230,7 +331,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                     <tr class="bold">
                       <td class="center nowrap">01/03/2021, 10:30AM</td>
@@ -243,7 +346,9 @@
                         </div>
                       </td>
                       <td class="center">01/03/2021, 10:30AM</td>
-                      <td class="table-action center"> <a class="table-see-more" href="#"><img src="./assets/icons/icon-eye.svg" alt=""></a></td>
+                      <td class="table-action center"> 
+                        <div class="table-see-more" data-toggle="modal" data-target="#modal-mailbox-reply"><img src="./assets/icons/icon-eye.svg" alt=""></div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -262,7 +367,10 @@
           </div>
         </div>
       </div>
-    </div><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"> </script><script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"> </script>
     <script src="./assets/js/main.js"></script>
   </body>

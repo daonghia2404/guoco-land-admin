@@ -98,11 +98,25 @@ a {
     .card-title {
       font-size: 14px;
       color: $black;
+      display: block;
+    }
+
+    .card-link {
+      text-decoration: underline;
+      margin-bottom: 10px;
+
+      &+.card-link {
+        margin-left: 0;
+      }
     }
 
     .card-title {
       font-weight: 600;
       margin-bottom: 0;
+
+      &.big {
+        font-size: 18px;
+      }
     }
 
     .card-des {
@@ -114,7 +128,7 @@ a {
 
 .app-main-body {
   margin-top: 50px;
-  padding: 30px;
+  padding: 15px 30px;
   min-height: calc(100vh - 50px);
   background: $bg-light;
 
@@ -159,7 +173,7 @@ a {
   }
 
   .app-body-main {
-    margin-top: 30px;
+    margin-top: 15px;
   }
 }
 
@@ -171,6 +185,7 @@ a {
     align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 0;
+
     &.auto {
       .form-item {
         flex: 0 0 auto;
@@ -495,6 +510,7 @@ a {
   .mdc-text-field {
     width: 100%;
     background: transparent;
+
     .mdc-floating-label {
       font-size: 14px;
     }
@@ -518,20 +534,25 @@ a {
     &:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
       color: $primary-dark;
     }
+
     .mdc-select__anchor {
       background: transparent;
     }
+
     &.mdc-select--focused {
       .mdc-select__dropdown-icon {
         transform: rotate(180deg);
       }
     }
+
     .mdc-select__dropdown-icon {
       transition: 0.3s ease;
     }
+
     .mdc-select__selected-text {
       font-size: 14px;
     }
+
     .mdc-list {
       .mdc-list-item {
         .mdc-list-item__text {
@@ -570,6 +591,7 @@ a {
     }
 
     input {
+
       &::-webkit-datetime-edit-year-field:not([aria-valuenow]),
       &::-webkit-datetime-edit-month-field:not([aria-valuenow]),
       &::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
@@ -595,9 +617,11 @@ a {
   .mdc-textarea {
     height: auto;
     padding: 20px 16px;
+
     .mdc-floating-label {
       top: 25px;
     }
+
     .mdc-text-field__input {
       min-height: 170px;
     }
@@ -741,14 +765,16 @@ a {
           &:last-of-type td {
             border-bottom: 0;
           }
+
           &.disabled {
             td {
               opacity: 0.5;
             }
           }
+
           &.bold {
             td {
-              font-weight: 600;
+              font-weight: 700;
             }
           }
         }
@@ -824,6 +850,8 @@ a {
             width: 75px;
 
             .table-see-more {
+              cursor: pointer;
+
               img {
                 width: 15px;
               }
@@ -970,10 +998,12 @@ a {
     border-radius: 4px;
     font-size: 12px;
     color: $black;
+
     &.new {
       background: $red;
       color: $white;
     }
+
     &.pending {
       background: $primary-light;
       color: $white;
@@ -984,4 +1014,280 @@ a {
 p {
   font-size: 14px;
   line-height: 1.5;
+}
+
+.lists-page-wrapper {
+  margin: 0 -7.5px;
+
+  .section-card-style {
+    margin: 0 7.5px 15px;
+  }
+
+  .list-items {
+    @media (max-width: 991px) {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    &.action {
+      flex: 0 0 calc(250px + 15px);
+      max-width: calc(250px + 15px);
+
+      .line {
+        margin: 0px -20px 15px;
+      }
+
+      .tab-expand-item {
+        .mdc-checkbox-wrapper {
+          label {
+            text-transform: uppercase;
+          }
+        }
+
+        .tab-header {
+          padding: 0;
+          background: transparent;
+
+          .mdc-checkbox-wrapper {
+            label {
+              color: #212529;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .tab-body {
+          padding: 5px 15px;
+
+          .checkbox-child {
+            .mdc-checkbox-wrapper {
+              label {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.lists {
+      flex: 1;
+
+      .section-card-style {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+
+        @media (max-width: 1080px) {
+          flex: 0 0 calc(100% - 15px);
+          max-width: calc(100% - 15px);
+        }
+
+        @media (max-width: 991px) {
+          flex: 0 0 calc(50% - 15px);
+          max-width: calc(50% - 15px);
+        }
+
+        @media (max-width: 768px) {
+          flex: 0 0 calc(100% - 15px);
+          max-width: calc(100% - 15px);
+        }
+
+        .card-image,
+        .card-content {
+          flex: 0 0 50%;
+          max-width: 50%;
+
+          @media (max-width: 575px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        }
+
+        .card-image {
+          border-radius: 5px;
+          overflow: auto;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .card-content {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+.mdc-select__menu {
+  .mdc-list-item {
+    &:not(:first-of-type) {
+      padding: 8px 16px;
+    }
+  }
+}
+
+.mdc-tooltip--hide {
+  display: none !important;
+}
+
+.modal {
+  .modal-header {
+    border-bottom: none;
+    padding: 25px 16px 10px 16px;
+
+    .modal-title {
+      font-size: 22px;
+    }
+  }
+
+  .modal-body {
+    padding-bottom: 32px;
+  }
+}
+
+#modal-mailbox-reply {
+  p {
+    font-size: 12px;
+    margin-bottom: 5px;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .modal-header {
+    @media (max-width: 575px) {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+
+    p {
+      text-align: right;
+      margin-bottom: 0;
+
+      @media (max-width: 575px) {
+        text-align: left;
+      }
+    }
+  }
+
+  .mailbox-wrapper {
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+
+    .mailbox-header {
+      position: relative;
+      padding: 15px 50px 15px 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      .tag-label-group {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+    }
+
+    .mailbox-body {
+      padding: 15px;
+      max-height: 320px;
+      overflow: auto;
+      @include styleScrollBar;
+
+      .mailbox-message-wrapper {
+        &:not(:last-of-type) {
+          margin-bottom: 15px;
+        }
+
+        .mailbox-message {
+          position: relative;
+          padding: 10px;
+          border-radius: 4px;
+          border-bottom-left-radius: 0;
+          background: #937E4C;
+
+          &::before {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: 0;
+            width: 15px;
+            height: 20px;
+            clip-path: polygon(0 0, 0% 100%, 100% 0);
+            background: #937E4C;
+          }
+
+          p {
+            color: $white;
+            margin-bottom: 15px;
+          }
+        }
+
+        .mailbox-time {
+          margin-top: 5px;
+          text-align: right;
+          font-size: 10px;
+        }
+      }
+    }
+
+    .mailbox-footer {
+      padding: 15px;
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+
+      .custom-style-form {
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+
+        .form-item {
+          margin-bottom: 0;
+        }
+      }
+
+      .mdc-textarea {
+        padding: 0 10px;
+        margin: 0;
+
+        .mdc-floating-label {
+          top: 20px;
+          left: 10px;
+        }
+
+        .mdc-text-field__input {
+          height: 62px;
+          min-height: auto;
+          padding: 15px 0;
+        }
+
+        .mdc-line-ripple {
+          display: none;
+        }
+      }
+
+      .mdc-button {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 42px;
+        max-width: 42px;
+        min-width: auto;
+        height: 62px;
+        border-radius: 0;
+        padding: 0 10px;
+
+        .mdc-button__label {
+          font-size: 10px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }

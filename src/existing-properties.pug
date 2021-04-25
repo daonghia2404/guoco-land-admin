@@ -2,9 +2,13 @@ extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
   include includes/components/mdc-select.pug
+  include includes/components/mdc-tooltip.pug
   include includes/components/mdc-text-field.pug
 
   .app-main-body 
+    +MdcTooltip({ title: 'Lists', id: 'tooltip-lists' })
+    +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
+    +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
     .app-body-header
       .app-des Discover / #[strong Existing Properties]
       .app-title Existing Properties
@@ -17,9 +21,9 @@ block pages
               +MdcSelect({ idLabel: 'property-type', idSelectedText: 'property-type', placeholder: 'Property Type',  dataSelectOptions: [{ title: 'Property Type 1', value: 'property-type-1' }, { title: 'Property Type 2', value: 'property-type-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcButton({ icon: './assets/icons/icon-square.svg' })
-              +MdcButton({ icon: './assets/icons/icon-search.svg' })
-              +MdcButton({ icon: './assets/icons/icon-download.svg' })
+              +MdcButton({ icon: './assets/icons/icon-square.svg', tooltipId: 'tooltip-lists' })
+              +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search' })
+              +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download' })
               +MdcButton({ title: 'Add Properties' })
               
           .table-main

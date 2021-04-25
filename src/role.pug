@@ -2,9 +2,13 @@ extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
   include includes/components/mdc-select.pug
+  include includes/components/mdc-tooltip.pug
   include includes/components/mdc-text-field.pug
 
   .app-main-body 
+    +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
+    +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
+
     .app-body-header
       .app-des Backend Access / #[strong All Roles]
       .app-title All Roles
@@ -18,8 +22,8 @@ block pages
               +MdcSelect({ idLabel: 'status', idSelectedText: 'status', placeholder: 'Status',  dataSelectOptions: [{ title: 'Status 1', value: 'status-1' }, { title: 'Status 2', value: 'status-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcButton({ icon: './assets/icons/icon-search.svg' })
-              +MdcButton({ icon: './assets/icons/icon-download.svg' })
+              +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search' })
+              +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download' })
               +MdcButton({ title: 'Add Role' })
               
           .table-main

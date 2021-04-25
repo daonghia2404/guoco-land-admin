@@ -1,7 +1,11 @@
 extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
+  include includes/components/mdc-tooltip.pug
+  include includes/components/mdc-select.pug
   include includes/components/mdc-text-field.pug
+
+  include includes/components/modal-mailbox-reply.pug
 
   -
     const dataMailbox = [
@@ -88,6 +92,9 @@ block pages
     ]
 
   .app-main-body 
+    +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
+    +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
+
     .app-body-header
       .app-des Mailbox
       .app-title All Mail
@@ -96,14 +103,14 @@ block pages
         .table-main-wrapper 
           form(action="#").custom-style-form.table-main-header.d-flex.align-items-center.justify-content-between.flex-wrap
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcTextField({ type: 'date' })
-              +MdcTextField({ type: 'date' })
-              +MdcTextField({ type: 'select', dataSelectOptions: ['Status', 'Status 1', 'Status 2'] })
-              +MdcTextField({ type: 'select', dataSelectOptions: ['Enquiry Type', 'Enquiry Type 1', 'Enquiry Type 2'] })
+              +MdcTextField({ placeholder: 'Date Received', id: 'dateReceived', type: 'date' })
+              +MdcTextField({ placeholder: 'Status Update Date', id: 'statusUpdateDate', type: 'date' })
+              +MdcSelect({ idLabel: 'status', idSelectedText: 'status', placeholder: 'Status',  dataSelectOptions: [{ title: 'Status 1', value: 'status-1' }, { title: 'Status 2', value: 'status-2' }] })
+              +MdcSelect({ idLabel: 'enquiry-type', idSelectedText: 'enquiry-type', placeholder: 'Enquiry Type',  dataSelectOptions: [{ title: 'Enquiry Type 1', value: 'enquiry-type-1' }, { title: 'Enquiry Type 2', value: 'enquiry-type-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcButton({ icon: './assets/icons/icon-search.svg' })
-              +MdcButton({ icon: './assets/icons/icon-download.svg' })
+              +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search' })
+              +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download' })
               
           .table-main
             .table-main-body 
@@ -129,7 +136,7 @@ block pages
                           .tag-item(class=`${item.status.toLowerCase()}`)= item.status
                       td.center= item.lastUpdated
                       td.table-action.center 
-                        a(href="#").table-see-more
+                        .table-see-more(data-toggle="modal" data-target=`#modal-mailbox-reply`)
                           img(src="./assets/icons/icon-eye.svg", alt="")
 
             .table-main-footer.d-flex.align-items-center.justify-content-end 

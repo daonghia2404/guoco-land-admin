@@ -1,17 +1,25 @@
 extends includes/layout/layout.pug
 block pages
   include includes/components/mdc-button.pug
+  include includes/components/mdc-tooltip.pug
+  include includes/components/mdc-select.pug
   include includes/components/mdc-text-field.pug
 
+  include includes/components/modal-faq-category.pug
+  include includes/components/modal-faq-add.pug
+
   .app-main-body 
+    +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
+    +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
+
     .app-body-header
       .app-des FAQ
       .app-title.d-flex.align-items-center.justify-content-between
         |FAQ
         .button-group.d-flex.custom-style-form.table-main-wrapper
-          +MdcButton({ icon: './assets/icons/icon-search.svg', className: 'mr-2' })
-          +MdcButton({ icon: './assets/icons/icon-download.svg', className: 'mr-2' })
-          +MdcButton({ title: 'Add New' })
+          +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search', className: 'mr-2' })
+          +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download', className: 'mr-2' })
+          +MdcButton({ title: 'Add New', modalId: 'modal-faq-add' })
           
     .app-body-main
       .event-detail-page.d-flex.flex-wrap.tab-wrapper
@@ -26,7 +34,7 @@ block pages
                 |Personal Data & Information
             
             .custom-style-form.d-flex.justify-content-center
-              +MdcButton({ title: 'Add Category', isOutline: true })
+              +MdcButton({ title: 'Add Category', isOutline: true, modalId: 'modal-faq-category' })
 
         .event-detail-page-item.tabs-main-group
           each tab, tabIndex in ['Who is eligible to join GuocoLand Privilege Club ?', 'About Privileges', 'Personal Data & Information']

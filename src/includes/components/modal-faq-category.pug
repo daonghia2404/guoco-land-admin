@@ -1,0 +1,15 @@
+.modal.fade(tabindex="-1" role="dialog")#modal-faq-category
+  .modal-dialog(role="document").modal-dialog-centered
+    .modal-content 
+      .modal-header 
+        h5.modal-title New FAQ Category
+      .modal-body 
+        form(action="#").custom-style-form
+          .form-group 
+            .form-item 
+              .form-label Category Name
+              +MdcTextField({ type: 'text', placeholder: 'Category Name' })
+
+          .form-group(data-dismiss="modal").justify-content-center
+            +MdcButton({ title: 'Cancel', isOutline: true, className: 'm-2' })
+            +MdcButton({ title: 'Save', className: 'm-2' })

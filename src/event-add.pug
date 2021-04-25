@@ -57,7 +57,7 @@ block pages
                   .form-item
                     label.form-label Contact Number *
                     +MdcTextField({ type: 'text', placeholder: 'Contact Number' })
-                  .form-item.d-flex.align-items-center.justify-content-end.flex-wrap
+                  .form-item.d-flex.align-items-center.justify-content-end.flex-wrap.js-enable-notification
                     +MdcCheckbox({ label: 'Enable Notifications', id: 'enableNotifications' })
                     +MdcTextField({ type: 'text', placeholder: 'No.' })
                     +MdcSelect({ idLabel: 'select', idSelectedText: 'select', placeholder: 'Select',  dataSelectOptions: [{ title: 'Select 1', value: 'select-1' }, { title: 'Select 2', value: 'select-2' }] })

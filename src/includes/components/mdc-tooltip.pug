@@ -1,0 +1,3 @@
+mixin MdcTooltip(data)
+  .mdc-tooltip(role="tooltip" aria-hidden="true" id=`${data.id ? data.id : ''}`)
+    .mdc-tooltip__surface= data.title

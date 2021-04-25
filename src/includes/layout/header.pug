@@ -3,9 +3,19 @@ header.header
     .header-item
       .header-btn-menu 
         img(src="./assets/icons/icon-menu-brown.svg", alt="")
-    .header-item.d-flex.align-items-center 
+    .header-item.d-flex.align-items-center
       a(href="#").item-mail
         img(src="./assets/icons/icon-email.svg", alt="")
-      .item-account.d-flex.align-items-center 
-        span.account-name John Smith 
-        img(src="./assets/icons/icon-angle-down.svg", alt="")
+
+      .dropdown
+        button.item-account.d-flex.align-items-center.dropdown-toggle#accountDropdown(data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false") 
+          span.account-name John Smith 
+          img(src="./assets/icons/icon-angle-down.svg", alt="")
+
+        .header-dropwdown.dropdown-menu.dropdown-menu-right(aria-labelledby="accountDropdown")
+          ul.mdc-list
+            each item, index in ['Change Password', 'Log out']
+              li.mdc-list-item
+                span.mdc-list-item__ripple
+                a(href="#").mdc-list-item__text
+                  = item

@@ -5,6 +5,7 @@ window.onload = () => {
   materialIo.init()
   menu.init()
   tabExpand.init()
+  checkboxGroup.init()
   chart.init()
 }
 
@@ -15,7 +16,15 @@ const materialIo = {
     this.initCheckboxes()
     this.initLists()
     this.initSelect()
+    this.initTooltip()
     // this.initTable()
+  },
+  initTooltip: function() {
+    const MDCTooltip = mdc.tooltip.MDCTooltip
+    const tooltips = document.querySelectorAll('.mdc-tooltip')
+    tooltips.forEach((item, index) => {
+      const tooltip = new MDCTooltip(item)
+    })
   },
   initTable: function() {
     const MDCDataTable = mdc.dataTable.MDCDataTable
@@ -308,3 +317,57 @@ const tabEvent = {
     }
   },
 };
+
+
+const checkboxGroup = {
+  init: function() {
+    this.config()
+    this.enableNotification()
+  },
+  config: function() {
+    const mains = document.querySelectorAll('.checkboxes-group-wrapper')
+    mains.forEach((main) => {
+      const checkboxParent = main.querySelector('.checkbox-parent input[type="checkbox"]')
+      const checkboxChild = main.querySelectorAll('.checkbox-child input[type="checkbox"]')
+
+      const isCheckAll = () => {
+        let isCheckAll = true
+        checkboxChild.forEach((child) => {
+          if (!child.checked) isCheckAll = false
+        })
+        return isCheckAll
+      }
+
+      checkboxParent.addEventListener('change', (e) => {
+        const value = e.target.checked
+        checkboxChild.forEach((child) => {
+          child.checked = value
+        })
+      })
+
+      checkboxChild.forEach(child => child.addEventListener('change', () => {
+        checkboxParent.checked = isCheckAll()
+      }))
+    })
+  },
+  enableNotification: function() {
+    const main = document.querySelector('.js-enable-notification')
+    if (main) {
+      const checkboxEnable = main.querySelector('.mdc-checkbox-wrapper input[type="checkbox"]')
+      const textField = main.querySelector('.mdc-text-field')
+      const selectField = main.querySelector('.mdc-select')
+      checkboxEnable.addEventListener('change', (e) => {
+        const value = e.target.checked
+        if (value) {
+          textField.classList.add('mdc-text-field--disabled')
+          textField.querySelector('input[type="text"]').disabled = true
+          selectField.classList.add('mdc-select--disabled')
+        } else {
+          textField.classList.remove('mdc-text-field--disabled')
+          textField.querySelector('input[type="text"]').disabled = false
+          selectField.classList.remove('mdc-select--disabled')
+        }
+      })
+    }
+  }
+}
