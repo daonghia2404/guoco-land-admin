@@ -6,60 +6,58 @@ block pages
   include includes/components/mdc-tooltip.pug
 
   .app-main-body 
-    +MdcTooltip({ title: 'Lists', id: 'tooltip-lists' })
     +MdcTooltip({ title: 'Search', id: 'tooltip-search' })
     +MdcTooltip({ title: 'Download', id: 'tooltip-download' })
 
 
     .app-body-header
-      .app-des Events
-      .app-title Events
+      .app-des Communications
+      .app-title Communications List
     .app-body-main
-      .event-page
+      .communications-page
         .table-main-wrapper 
           form(action="#").custom-style-form.table-main-header.d-flex.align-items-center.justify-content-between.flex-wrap
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcTextField({ type: 'date', placeholder: "Select Date", id: 'selectDate' })
-              +MdcSelect({ idLabel: 'status', idSelectedText: 'status', placeholder: 'Status',  dataSelectOptions: [{ title: 'Status 1', value: 'status-1' }, { title: 'Status 2', value: 'status-2' }] })
+              +MdcTextField({ type: 'date', placeholder: "Publish Date", id: 'selectDate' })
+              +MdcSelect({ idLabel: 'type', idSelectedText: 'type', placeholder: 'Type',  dataSelectOptions: [{ title: 'Type 1', value: 'type-1' }, { title: 'Type 2', value: 'type-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcButton({ link: 'event-lists.html', icon: './assets/icons/icon-square.svg', tooltipId: 'tooltip-lists' })
               +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search' })
               +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download' })
-              +MdcButton({ link: 'event-add.html', title: 'Add Event' })
+              .dropdown.hide-arrow
+                .mdc-button-wrapper.dropdown-toggle#accountDropdown(data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false") 
+                  .mdc-button(class=`mdc-button--raised`)
+                    .mdc-button__ripple
+                    span.mdc-button__label.mr-2 Add New
+                    span.mdc-button__label.arrow-block
+                      img(src=`./assets/icons/icon-angle-down-white.svg`, alt="")
+                
+                .header-dropwdown.dropdown-menu.dropdown-menu-right(aria-labelledby="accountDropdown")
+                  ul.mdc-list
+                    each item, index in ['MAILBOX', 'POPUP']
+                      li.mdc-list-item
+                        span.mdc-list-item__ripple
+                        a(href="#").mdc-list-item__text
+                          = item
               
           .table-main
             .table-main-body 
               table 
                 thead 
                   tr 
-                    td.center.nowrap Start Date & Time
-                    td.center.nowrap End Date & Time
+                    td.center.nowrap Publish Date & TIme
                     td Title
-                    td Venue
-                    td.center Contact No.
-                    td.center Status
+                    td.center.nowrap Type
                     td.table-action
                 tbody 
                   each item in [1,2,3,4,5,6,7,8,9,10]
-                    if item < 4
-                      tr 
-                        td.center.nowrap 01/03/2021, 10:30AM          
-                        td.center.nowrap 01/03/2021, 10:30AM          
-                        td.min-width-150 Coffee Appreciation Workshop
-                        td.min-width-150 8 Martin Place, Martin Modern, Function Room, S237992
-                        td.nowrap.center 9876 5432
-                        if item % 2 === 0
-                          td.nowrap.center.disabled Ended
-                        else 
-                          td.nowrap.center Upcoming
-                        td.table-action.center 
-                          a(href="event-detail.html").table-see-more
-                            img(src="./assets/icons/icon-eye.svg", alt="")
-                    else 
-                      tr
-                        each item in [1,2,3,4,5,6,7]
-                          td.null
+                    tr 
+                      td.center.nowrap 01/03/2021, 10:30AM          
+                      td.min-width-150 Upcoming Property Showcase
+                      td.nowrap.center Mailbox
+                      td.table-action.center 
+                        a(href="#").table-see-more
+                          img(src="./assets/icons/icon-eye.svg", alt="")
 
             .table-main-footer.d-flex.align-items-center.justify-content-end 
               .table-page-info 1 - 10 of 33

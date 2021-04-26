@@ -21,10 +21,10 @@ block pages
               +MdcSelect({ idLabel: 'property-type', idSelectedText: 'property-type', placeholder: 'Property Type',  dataSelectOptions: [{ title: 'Property Type 1', value: 'property-type-1' }, { title: 'Property Type 2', value: 'property-type-2' }] })
               
             .header-item.d-flex.align-items-center.flex-wrap
-              +MdcButton({ icon: './assets/icons/icon-square.svg', tooltipId: 'tooltip-lists' })
+              +MdcButton({ link: 'existing-properties-lists.html', icon: './assets/icons/icon-square.svg', tooltipId: 'tooltip-lists' })
               +MdcButton({ icon: './assets/icons/icon-search.svg', tooltipId: 'tooltip-search' })
               +MdcButton({ icon: './assets/icons/icon-download.svg', tooltipId: 'tooltip-download' })
-              +MdcButton({ title: 'Add Properties' })
+              +MdcButton({ link: 'existing-properties-add.html', title: 'Add Properties' })
               
           .table-main
             .table-main-body 
@@ -48,7 +48,7 @@ block pages
                       td.nowrap.center 9876 5432
                       td.nowrap info@guocotower.com
                       td.table-action.center 
-                        a(href="#").table-see-more
+                        a(href="existing-properties-detail.html").table-see-more
                           img(src="./assets/icons/icon-eye.svg", alt="")
 
             .table-main-footer.d-flex.align-items-center.justify-content-end 

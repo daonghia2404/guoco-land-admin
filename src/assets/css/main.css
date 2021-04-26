@@ -676,6 +676,18 @@ a {
 .custom-style-form .mdc-button {
   height: 40px;
   padding: 0 40px; }
+  .custom-style-form .mdc-button .arrow-block {
+    display: block;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    background: #957a66;
+    margin-right: -40px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-left: 20px; }
+    .custom-style-form .mdc-button .arrow-block img {
+      margin: auto; }
   .custom-style-form .mdc-button .mdc-button__label {
     text-transform: none;
     letter-spacing: 0.5px;
@@ -1295,19 +1307,23 @@ header.header {
         header.header .header-wrapper .header-item .item-account img {
           width: 10px;
           margin-left: 10px; }
-      header.header .header-wrapper .header-item .header-dropwdown {
-        padding: 0; }
-        header.header .header-wrapper .header-item .header-dropwdown .mdc-list {
-          padding: 0; }
-        header.header .header-wrapper .header-item .header-dropwdown .mdc-list-item {
-          padding: 10px; }
-          header.header .header-wrapper .header-item .header-dropwdown .mdc-list-item:not(:last-of-type) {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
-          header.header .header-wrapper .header-item .header-dropwdown .mdc-list-item .mdc-list-item__text {
-            font-size: 14px;
-            text-align: center;
-            color: #000;
-            width: 100%; }
+
+.dropdown.hide-arrow .dropdown-toggle:after {
+  display: none; }
+
+.header-dropwdown {
+  padding: 0; }
+  .header-dropwdown .mdc-list {
+    padding: 0; }
+  .header-dropwdown .mdc-list-item {
+    padding: 10px; }
+    .header-dropwdown .mdc-list-item:not(:last-of-type) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+    .header-dropwdown .mdc-list-item .mdc-list-item__text {
+      font-size: 14px;
+      text-align: center;
+      color: #000;
+      width: 100%; }
 
 .dashboard-page {
   margin: 0 -7.5px; }
