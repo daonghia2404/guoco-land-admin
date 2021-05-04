@@ -119,7 +119,7 @@
         each item, index in dataMenu
           li.mdc-list-item(data-submenu=`${item.child.length !== 0 ? item.title.toLowerCase().replace(/\s/g, '-') : ''}`)
             span.mdc-list-item__ripple
-            span.mdc-list-item__text.d-flex.align-items-center.justify-content-between
+            a(href=`${item.link}`).mdc-list-item__text.d-flex.align-items-center.justify-content-between
               = item.title 
               if item.child.length !== 0
                 img(src="./assets/icons/icon-angle-down-white.svg", alt="")
@@ -129,5 +129,5 @@
               each sub, indexSub in item.child 
                 li.mdc-list-item
                   span.mdc-list-item__ripple
-                  span.mdc-list-item__text.d-flex.align-items-center.justify-content-between
+                  a(href=`${sub.link}`).mdc-list-item__text.d-flex.align-items-center.justify-content-between
                     = sub.title 

@@ -38,6 +38,15 @@
       .privileges-redeemed-chart {
         .chart-des {
           font-size: 14px;
+          input {
+            border: none;
+            outline: none;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            width: 120px;
+            cursor: pointer;
+          }
           img {
             width: 15px;
             margin-left: 5px;
@@ -121,6 +130,15 @@
       .users-chart {
         .chart-des {
           font-size: 14px;
+          input {
+            border: none;
+            outline: none;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            width: 120px;
+            cursor: pointer;
+          }
           img {
             width: 15px;
             margin-left: 5px;

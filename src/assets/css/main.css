@@ -1,3 +1,6 @@
+@import url(../css/library/bootstrap.min.css);
+@import url(../css/library/material-components-web.min.css);
+@import url(../css/library/daterangepicker.css);
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -1164,6 +1167,27 @@ p {
 .open-sans-font {
   font-family: 'Open Sans', sans-serif; }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format("woff2"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
 .guest-page {
   min-height: 100vh;
   background: #A5956D;
@@ -1356,6 +1380,14 @@ header.header {
       flex: 0 0 calc(35% - 15px); }
       .dashboard-page .section-card-style.privileges-redeemed .privileges-redeemed-chart .chart-des {
         font-size: 14px; }
+        .dashboard-page .section-card-style.privileges-redeemed .privileges-redeemed-chart .chart-des input {
+          border: none;
+          outline: none;
+          text-align: center;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 14px;
+          width: 120px;
+          cursor: pointer; }
         .dashboard-page .section-card-style.privileges-redeemed .privileges-redeemed-chart .chart-des img {
           width: 15px;
           margin-left: 5px; }
@@ -1420,6 +1452,14 @@ header.header {
       flex: 0 0 calc(40% - 15px); }
       .dashboard-page .section-card-style.users .users-chart .chart-des {
         font-size: 14px; }
+        .dashboard-page .section-card-style.users .users-chart .chart-des input {
+          border: none;
+          outline: none;
+          text-align: center;
+          font-family: 'Open Sans', sans-serif;
+          font-size: 14px;
+          width: 120px;
+          cursor: pointer; }
         .dashboard-page .section-card-style.users .users-chart .chart-des img {
           width: 15px;
           margin-left: 5px; }

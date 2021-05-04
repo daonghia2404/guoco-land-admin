@@ -6,6 +6,7 @@ window.onload = () => {
   menu.init()
   tabExpand.init()
   checkboxGroup.init()
+  dateRangePickerJs.init()
   chart.init()
 }
 
@@ -369,5 +370,21 @@ const checkboxGroup = {
         }
       })
     }
+  }
+}
+
+const dateRangePickerJs = {
+  init: function() {
+    this.config()
+  },
+  config: function() {
+    const options = {
+      startDate: moment().startOf('hour'),
+      endDate: moment().add(5, 'd'),
+      locale: {
+        format: 'MMM DD'
+      }
+    }
+    $('input[name="daterange"]').daterangepicker(options)
   }
 }
