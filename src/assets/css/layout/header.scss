@@ -8,12 +8,23 @@ header.header {
   .header-wrapper {
     padding: 0 30px;
     height: 50px;
+    @media (max-width: 575px) {
+      padding: 0 15px;
+    }
     .header-item {
       position: relative;
       .item-mail,
       .header-btn-menu {
+        position: relative;
         width: 20px;
         cursor: pointer;
+        transition: 0.3s ease;
+        left: 0;
+        &.active {
+          @media (min-width: 576px) {
+            left: 245px;
+          }
+        }
         img {
           width: 100%;
         }

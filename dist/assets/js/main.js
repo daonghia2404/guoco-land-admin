@@ -85,10 +85,12 @@ const menu = {
     if (btnMenu && menu) {
       const menuOverlay = menuWrapper.querySelector('.menu-overlay')
       btnMenu.addEventListener('click', () => {
-        menuWrapper.classList.add('active')
+        menuWrapper.classList.toggle('active')
+        btnMenu.classList.toggle('active')
       })
       menuOverlay.addEventListener('click', () => {
         menuWrapper.classList.remove('active')
+        btnMenu.classList.remove('active')
       })
     }
   },

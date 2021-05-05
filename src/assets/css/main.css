@@ -1306,12 +1306,22 @@ header.header {
   header.header .header-wrapper {
     padding: 0 30px;
     height: 50px; }
+    @media (max-width: 575px) {
+      header.header .header-wrapper {
+        padding: 0 15px; } }
     header.header .header-wrapper .header-item {
       position: relative; }
       header.header .header-wrapper .header-item .item-mail,
       header.header .header-wrapper .header-item .header-btn-menu {
+        position: relative;
         width: 20px;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: 0.3s ease;
+        left: 0; }
+        @media (min-width: 576px) {
+          header.header .header-wrapper .header-item .item-mail.active,
+          header.header .header-wrapper .header-item .header-btn-menu.active {
+            left: 245px; } }
         header.header .header-wrapper .header-item .item-mail img,
         header.header .header-wrapper .header-item .header-btn-menu img {
           width: 100%; }
