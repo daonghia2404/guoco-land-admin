@@ -179,6 +179,16 @@ a {
 
 
 .custom-style-form {
+  .form-message {
+    font-size: 12px;
+    margin-top: 5px;
+    &.success {
+      color: $success;
+    }
+    &.error {
+      color: $error;
+    }
+  }
   .form-group {
     display: flex;
     justify-content: space-between;
@@ -624,12 +634,13 @@ a {
 
   .mdc-text-field-helper-line {
     position: absolute;
-    bottom: 25px;
+    top: calc(100% - 60px);
     right: 10px;
     pointer-events: none;
   }
 
   .mdc-textarea {
+    position: relative;
     height: auto;
     padding: 20px 16px;
 
@@ -675,6 +686,7 @@ a {
     z-index: 3;
     opacity: 0;
     cursor: pointer;
+    display: block !important;
   }
 
   .mdc-button--outlined {

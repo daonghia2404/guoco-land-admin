@@ -2,6 +2,7 @@ window.onload = () => {
   tabEvent.init();
   // owlCarousel.init();
   console.log(mdc)
+  formValidationJs.init()
   materialIo.init()
   menu.init()
   tabExpand.init()
@@ -39,6 +40,13 @@ const materialIo = {
     const selects = document.querySelectorAll('.mdc-select')
     selects.forEach((item, index) => {
       const select = new MDCSelect(item)
+      const currentInput = item.querySelector('.mdc-select-value')
+      const listMenu = item.querySelectorAll('.mdc-select__menu .mdc-list-item')
+      listMenu.forEach((option, indexOption) => option.addEventListener('click', () => {
+        const value = option.querySelector('.mdc-list-item__text')?.textContent
+        currentInput.value = value
+        currentInput.setAttribute('value', value)
+      }))
     })
   },
   initButton: function () {
@@ -123,19 +131,23 @@ const tabExpand = {
         tabExpands[tabIndex].classList.add('active')
       }
       tabExpandNext.forEach((event, eventClick) => event.addEventListener('click', (e) => {
-        e.preventDefault()
-        tabIndex++
-        showTabStep()
+        const isValid = event.dataset.valid
+        if (isValid === 'true') {
+          tabIndex++
+          showTabStep()
+        } else {
+          e.preventDefault()
+        }
       }))
       tabExpandPrev.forEach((event, eventClick) => event.addEventListener('click', (e) => {
         e.preventDefault()
         tabIndex--
         showTabStep()
       }))
-      tabExpandSelf.forEach((event, eventClick) => event.addEventListener('click', (e) => {
-        tabIndex = eventClick
-        showTabStep()
-      }))
+      // tabExpandSelf.forEach((event, eventClick) => event.addEventListener('click', (e) => {
+      //   tabIndex = eventClick
+      //   showTabStep()
+      // }))
       showTabStep()
     })
   },
@@ -161,6 +173,9 @@ const chart = {
           data: [0, 5000, 2500, 7500, 10000],
           fill: true,
           backgroundColor: gradient,
+          pointBackgroundColor: 'transparent',
+          pointBorderColor: 'transparent',
+          pointHoverRadius: 30,
           borderColor: '#91783E',
           borderWidth: 1,
           tension: 0.4
@@ -177,7 +192,7 @@ const chart = {
           },
           elements: {
             point: {
-              radius: 0
+              radius: 30
             }
           },
           responsive: true,
@@ -219,6 +234,9 @@ const chart = {
           fill: true,
           backgroundColor: gradient,
           borderColor: '#91783E',
+          pointBackgroundColor: 'transparent',
+          pointBorderColor: 'transparent',
+          pointHoverRadius: 30,
           borderWidth: 1,
           tension: 0.4
         }]
@@ -234,7 +252,7 @@ const chart = {
           },
           elements: {
             point: {
-              radius: 0
+              radius: 30
             }
           },
           responsive: true,
@@ -388,5 +406,137 @@ const dateRangePickerJs = {
       }
     }
     $('input[name="daterange"]').daterangepicker(options)
+  }
+}
+
+const formValidationJs = {
+  init: function() {
+    this.config()
+  },
+  validationChecked: function(values) {
+    let isChecked = false
+    values.forEach((item) => { if (item.checked) isChecked = true })
+    return isChecked
+  },
+  validationRequired: function(value) {
+    if (typeof value === 'number') {
+      return value > 0
+    } else {
+      return value.trim().length > 0
+    }
+  },
+  validationEmail: function(value) {
+    return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(value).toLowerCase())
+  },
+  config: function() {
+    const mains = document.querySelectorAll('.form-validation')
+    const formSaveBtn = document.querySelector('.form-save-btn')
+    mains.forEach((main, indexMain) => {
+      let isError = false
+      const formInputValidation = main.querySelectorAll('.form-input-validation')
+      const formTextareaValidation = main.querySelectorAll('.form-textarea-validation')
+      const formSelectValidation = main.querySelectorAll('.form-select-validation')
+      const formCheckboxValidation = main.querySelectorAll('.form-checkbox-group-validation')
+      const formUploadValidation = main.querySelectorAll('.form-upload-validation')
+      const formSubmitValidation = main.querySelectorAll('.form-submit-validation')
+
+      function returnMessage(target, type, message) {
+        target.innerHTML = ''
+        target.className = 'form-message'
+        if (type === 'success') {
+          target.innerHTML = message
+          target.classList.add('success')
+        }
+        if (type === 'error') {
+          target.innerHTML = message
+          isError = true
+          target.classList.add('error')
+        }
+      }
+
+      const processError = (item, value) => {
+        const name = item.dataset.name
+        const rules = item.dataset.rules.split(',')
+        const message = item.querySelector('.form-message')
+        let isFormError = false
+  
+        if (rules.includes('required') && !this.validationRequired(value)) {
+          isFormError = true
+          returnMessage(message, 'error', `${name} is required`)
+        }
+
+        if (rules.includes('email') && !this.validationEmail(value)) {
+          isFormError = true
+          returnMessage(message, 'error', `${name} is invalid`)
+        }
+
+        if (rules.includes('checked') && !this.validationChecked(value)) {
+          isFormError = true
+          returnMessage(message, 'error', `${name} is required checked at least one option`)
+        }
+
+        if (!isFormError) {
+          returnMessage(message, 'success', ``)
+        }
+      }
+
+      const clickSubmitBtn = () => {
+        formInputValidation.forEach((item, index) => {
+          const target = item.querySelector('input')
+          processError(item, target.value)
+        })
+
+        formSelectValidation.forEach((item, index) => {
+          const target = item.querySelector('input')
+          processError(item, target.value)
+        })
+
+        formTextareaValidation.forEach((item, index) => {
+          const target = item.querySelector('textarea')
+          processError(item, target.value)
+        })
+
+        formUploadValidation.forEach((item, index) => {
+          const target = item.querySelector('.upload-wrapper > input[type="file"]')
+          processError(item, target.files.length)
+        })
+
+        formCheckboxValidation.forEach((group, indexGroup) => {
+          const allCheckboxes = group.querySelectorAll('input[type="checkbox"]')
+          processError(group, allCheckboxes)
+        })
+      }
+
+      if (formSaveBtn) {
+        formSaveBtn.addEventListener('click', (e) => {
+          mains.forEach((item, index) => {
+            isError = false
+            clickSubmitBtn()
+            if (isError) {
+              e.preventDefault()
+              formSaveBtn.setAttribute('data-valid', false)
+              if (formSubmitValidation[index]) {
+                formSubmitValidation[index].setAttribute('data-valid', false)
+              }
+            } else {
+              formSaveBtn.setAttribute('data-valid', true)
+              if (formSubmitValidation[index]) {
+                formSubmitValidation[index].setAttribute('data-valid', true)
+              }
+            }
+          })
+        })
+      }
+
+      formSubmitValidation.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault()
+          isError = false
+          clickSubmitBtn()
+          if (isError) item.setAttribute('data-valid', false)
+          else item.setAttribute('data-valid', true)
+        })
+      })
+    })
   }
 }

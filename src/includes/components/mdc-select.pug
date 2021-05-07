@@ -1,5 +1,6 @@
 mixin MdcSelect(data)
   .mdc-select.mdc-select--filled
+    input(value="" style="display: none;").mdc-select-value
     .mdc-select__anchor(role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby=`${data.idLabel} ${data.idSelectedText}`)
       span.mdc-select__ripple
       .mdc-floating-label(id=`${data.idLabel}`)= data.placeholder

@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <div class="app-main-body"> 
+    <form class="app-main-body" action="#"> 
       <div class="app-body-header">
         <div class="app-des">Backend Access / Role List / <strong>New Role</strong></div>
         <div class="app-title d-flex align-items-center justify-content-between">New Role
@@ -80,7 +80,7 @@
                         <div class="mdc-button__ripple"></div><span class="mdc-button__label">Cancel</span>
                       </div>
                 </button>
-                <button class="mdc-button-wrapper  ">
+                <button class="mdc-button-wrapper form-save-btn ">
                       <div class="mdc-button mdc-button--raised  ">
                         <div class="mdc-button__ripple"></div><span class="mdc-button__label">Save</span>
                       </div>
@@ -91,249 +91,253 @@
       <div class="app-body-main">
         <div class="role-add-page">
           <div class="tab-expand-group"> 
-            <div class="tab-expand-item section-card-style">
+            <div class="tab-expand-item section-card-style form-validation">
               <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Role Details</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
               <div class="tab-body"> 
-                <form class="custom-style-form" action="#">
+                <div class="custom-style-form">
                   <div class="form-group">
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required" data-name="Role Name">
                       <label class="form-label">Role Name *</label>
                           <label class="mdc-text-field mdc-text-field--filled    "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Role Name</span>
                             <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
                   </div>
-                  <div class="form-group d-flex flex-wrap checkbox-group auto">
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
+                  <div class="form-checkbox-group-validation" data-rules="checked" data-name="Role">
+                    <div class="form-group d-flex flex-wrap checkbox-group auto">
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="users">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="users">Users</label>
+                              </div>
+                        </div>
+                        <div class="checkbox-child"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="all-users">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="all-users">All Users</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="reference-code">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="reference-code">Reference Codes</label>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="discover">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="discover">Discover</label>
+                              </div>
+                        </div>
+                        <div class="checkbox-child"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="existing-properties">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="existing-properties">Existing Properties</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="upcoming-launches">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="upcoming-launches">Upcoming Launches</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="media-coverage">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="media-coverage">Media Coverage</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="contact-info">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="contact-info">Contact Info</label>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="merchants">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="merchants">Merchants</label>
+                              </div>
+                        </div>
+                        <div class="checkbox-child"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="all-merchants">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="all-merchants">All Merchants</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="all-privileges">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="all-privileges">All Privileges</label>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="events">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="events">Events</label>
+                              </div>
+                        </div>
                             <div class="mdc-checkbox-wrapper"> 
                               <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="users">
+                                <input class="mdc-checkbox__native-control" type="checkbox" id="communications">
                                 <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                                   <div class="mdc-checkbox__mixedmark"></div>
                                 </div>
                                 <div class="mdc-checkbox__ripple"></div>
                               </div>
-                              <label for="users">Users</label>
+                              <label for="communications">Communications</label>
+                            </div>
+                            <div class="mdc-checkbox-wrapper"> 
+                              <div class="mdc-checkbox">
+                                <input class="mdc-checkbox__native-control" type="checkbox" id="reports">
+                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                  <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                              </div>
+                              <label for="reports">Reports</label>
                             </div>
                       </div>
-                      <div class="checkbox-child"> 
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="FAQ">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="FAQ">FAQ</label>
+                              </div>
+                        </div>
                             <div class="mdc-checkbox-wrapper"> 
                               <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="all-users">
+                                <input class="mdc-checkbox__native-control" type="checkbox" id="mailbox">
                                 <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
                                   <div class="mdc-checkbox__mixedmark"></div>
                                 </div>
                                 <div class="mdc-checkbox__ripple"></div>
                               </div>
-                              <label for="all-users">All Users</label>
+                              <label for="mailbox">Mailbox</label>
                             </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="reference-code">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
+                      </div>
+                      <div class="form-item checkboxes-group-wrapper">
+                        <div class="checkbox-parent"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="backend-access">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
                                 </div>
-                                <div class="mdc-checkbox__ripple"></div>
+                                <label for="backend-access">Backend Access</label>
                               </div>
-                              <label for="reference-code">Reference Codes</label>
-                            </div>
+                        </div>
+                        <div class="checkbox-child"> 
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="access-list">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="access-list">Access List</label>
+                              </div>
+                              <div class="mdc-checkbox-wrapper"> 
+                                <div class="mdc-checkbox">
+                                  <input class="mdc-checkbox__native-control" type="checkbox" id="role-list">
+                                  <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="role-list">Role List</label>
+                              </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="discover">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="discover">Discover</label>
-                            </div>
-                      </div>
-                      <div class="checkbox-child"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="existing-properties">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="existing-properties">Existing Properties</label>
-                            </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="upcoming-launches">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="upcoming-launches">Upcoming Launches</label>
-                            </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="media-coverage">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="media-coverage">Media Coverage</label>
-                            </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="contact-info">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="contact-info">Contact Info</label>
-                            </div>
-                      </div>
-                    </div>
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="merchants">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="merchants">Merchants</label>
-                            </div>
-                      </div>
-                      <div class="checkbox-child"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="all-merchants">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="all-merchants">All Merchants</label>
-                            </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="all-privileges">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="all-privileges">All Privileges</label>
-                            </div>
-                      </div>
-                    </div>
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="events">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="events">Events</label>
-                            </div>
-                      </div>
-                          <div class="mdc-checkbox-wrapper"> 
-                            <div class="mdc-checkbox">
-                              <input class="mdc-checkbox__native-control" type="checkbox" id="communications">
-                              <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
-                              </div>
-                              <div class="mdc-checkbox__ripple"></div>
-                            </div>
-                            <label for="communications">Communications</label>
-                          </div>
-                          <div class="mdc-checkbox-wrapper"> 
-                            <div class="mdc-checkbox">
-                              <input class="mdc-checkbox__native-control" type="checkbox" id="reports">
-                              <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
-                              </div>
-                              <div class="mdc-checkbox__ripple"></div>
-                            </div>
-                            <label for="reports">Reports</label>
-                          </div>
-                    </div>
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="FAQ">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="FAQ">FAQ</label>
-                            </div>
-                      </div>
-                          <div class="mdc-checkbox-wrapper"> 
-                            <div class="mdc-checkbox">
-                              <input class="mdc-checkbox__native-control" type="checkbox" id="mailbox">
-                              <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
-                              </div>
-                              <div class="mdc-checkbox__ripple"></div>
-                            </div>
-                            <label for="mailbox">Mailbox</label>
-                          </div>
-                    </div>
-                    <div class="form-item checkboxes-group-wrapper">
-                      <div class="checkbox-parent"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="backend-access">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="backend-access">Backend Access</label>
-                            </div>
-                      </div>
-                      <div class="checkbox-child"> 
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="access-list">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="access-list">Access List</label>
-                            </div>
-                            <div class="mdc-checkbox-wrapper"> 
-                              <div class="mdc-checkbox">
-                                <input class="mdc-checkbox__native-control" type="checkbox" id="role-list">
-                                <div class="mdc-checkbox__background"><svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24"><path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/></svg>
-                                  <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                              </div>
-                              <label for="role-list">Role List</label>
-                            </div>
-                      </div>
-                    </div>
+                    <div class="form-message"></div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div><a class="back-page d-flex align-items-center" href="#"><img src="./assets/icons/icon-arrow-left-brown.svg" alt="">Back to All Roles</a>
         </div>
       </div>
-    </div>
+    </form>
     <script src="./assets/js/jquery.min.js"> </script>
     <script src="./assets/js/popper.min.js"> </script>
     <script src="./assets/js/bootstrap.min.js"> </script>

@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <div class="app-main-body"> 
+    <form class="app-main-body" action="#"> 
       <div class="app-body-header">
         <div class="app-des">Discover / Existing Properties / <strong>New Property</strong></div>
         <div class="app-title d-flex align-items-center justify-content-between">New Property
@@ -80,7 +80,7 @@
                         <div class="mdc-button__ripple"></div><span class="mdc-button__label">Cancel</span>
                       </div>
                 </button>
-                <button class="mdc-button-wrapper  disabled">
+                <button class="mdc-button-wrapper form-save-btn ">
                       <div class="mdc-button mdc-button--raised  ">
                         <div class="mdc-button__ripple"></div><span class="mdc-button__label">Save</span>
                       </div>
@@ -91,20 +91,22 @@
       <div class="app-body-main">
         <div class="existing-properties-add-page d-flex flex-wrap justify-content-between">
           <div class="tab-expand-group"> 
-            <div class="tab-expand-item section-card-style">
+            <div class="tab-expand-item section-card-style form-validation">
               <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Step 1: Basic Details</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
               <div class="tab-body"> 
-                <form class="custom-style-form" action="#">
+                <div class="custom-style-form">
                   <div class="form-group col-6-4">
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required" data-name="Property Name">
                       <label class="form-label">Property Name *</label>
                           <label class="mdc-text-field mdc-text-field--filled    "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Property Name</span>
                             <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
-                    <div class="form-item"> 
+                    <div class="form-item form-select-validation" data-rules="required" data-name="Property Type">
                       <label class="form-label">Property Type *</label>
                           <div class="mdc-select mdc-select--filled">
+                            <input class="mdc-select-value" value="" style="display: none;">
                             <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="select-type select-type"><span class="mdc-select__ripple"></span>
                               <div class="mdc-floating-label" id="select-type">Select Type</div><span class="mdc-select__selected-text-container"><span class="mdc-select__selected-text" id="select-type"></span></span><span class="mdc-select__dropdown-icon"><svg fill="#707070" xmlns="http://www.w3.org/2000/svg" width="8.486" height="5.657" viewBox="0 0 8.486 5.657"><path id="Path_15" data-name="Path 15" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)"/></svg></span><span class="mdc-line-ripple"></span>
                             </div>
@@ -116,81 +118,95 @@
                               </ul>
                             </div>
                           </div>
+                      <div class="form-message"></div>
                     </div>
                   </div>
                   <div class="form-group col-4-6">
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required" data-name="Launch / TOP Date">
                       <label class="form-label">Launch / TOP Date *</label>
                           <label class="mdc-text-field mdc-text-field--filled mdc-input-date   "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Launch / TOP Date *</span>
                             <input class="mdc-text-field__input" type="date" aria-labelledby=""><img class="icon-date" src="./assets/icons/icon-calendar-gray.svg" alt=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required" data-name="Address">
                       <label class="form-label">Address *</label>
                           <label class="mdc-text-field mdc-text-field--filled    "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Address</span>
                             <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
                   </div>
                   <div class="form-group col-4-6">
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required" data-name="Contact Number">
                       <label class="form-label">Contact Number *</label>
                           <label class="mdc-text-field mdc-text-field--filled    "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Contact Number</span>
                             <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
-                    <div class="form-item"> 
+                    <div class="form-item form-input-validation" data-rules="required,email" data-name="Email Address">
                       <label class="form-label">Email Address *</label>
                           <label class="mdc-text-field mdc-text-field--filled    "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Email Address</span>
                             <input class="mdc-text-field__input" type="text" aria-labelledby=""><span class="mdc-line-ripple"></span>
                           </label>
+                      <div class="form-message"></div>
                     </div>
                   </div>
                   <div class="form-group"> 
                     <div class="form-item"> 
-                          <button class="mdc-button-wrapper tab-expand-click-next ">
+                          <button class="mdc-button-wrapper tab-expand-click-next form-submit-validation ">
                                 <div class="mdc-button mdc-button--raised  ">
                                   <div class="mdc-button__ripple"></div><span class="mdc-button__label">Next</span>
                                 </div>
                           </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
-            <div class="tab-expand-item section-card-style">
+            <div class="tab-expand-item section-card-style form-validation">
               <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Step 2: Description</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
               <div class="tab-body"> 
-                <form class="custom-style-form" action="#">
+                <div class="custom-style-form">
                   <div class="form-group">
-                    <div class="form-item"> 
+                    <div class="form-item form-textarea-validation" data-rules="required" data-name="Description">
                           <label class="mdc-text-field mdc-text-field--filled   mdc-textarea "><span class="mdc-text-field__ripple"></span><span class="mdc-floating-label" id="">Description here</span><span class="mdc-text-field__resizer">
                               <textarea class="mdc-text-field__input" maxlength="150" aria-labelledby="" aria-label="Label"></textarea></span><span class="mdc-line-ripple"></span>
                           </label>
                           <div class="mdc-text-field-helper-line">
                             <div class="mdc-text-field-character-counter">0 / 10</div>
                           </div>
+                      <div class="form-message"></div>
                     </div>
                   </div>
                   <div class="form-group"> 
                     <div class="form-item"> 
-                          <button class="mdc-button-wrapper tab-expand-click-next ">
+                          <button class="mdc-button-wrapper tab-expand-click-prev mr-2 form-submit-validation ">
+                                <div class="mdc-button  mdc-button--outlined ">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Back</span>
+                                </div>
+                          </button>
+                          <button class="mdc-button-wrapper tab-expand-click-next form-submit-validation ">
                                 <div class="mdc-button mdc-button--raised  ">
                                   <div class="mdc-button__ripple"></div><span class="mdc-button__label">Next</span>
                                 </div>
                           </button>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
-            <div class="tab-expand-item section-card-style">
+            <div class="tab-expand-item section-card-style form-validation">
               <div class="tab-header d-flex justify-content-between align-items-center tab-expand-click-self"><span>Step 3: File Upload</span><img src="./assets/icons/icon-angle-up-white.svg" alt=""></div>
               <div class="tab-body"> 
-                <form class="custom-style-form" action="#">
+                <div class="custom-style-form">
                   <div class="form-group">
-                    <div class="form-item upload-file">
+                    <div class="form-item upload-file form-upload-validation" data-rules="required" data-name="File Upload"> 
                       <label class="form-label">Upload PDF *</label>
+                      <div class="upload-wrapper" style="display: none;">
+                        <input type="file">
+                      </div>
                       <div class="upload-file-group d-flex align-items-start justify-content-between">
                         <div class="file-list-wrapper">
                           <div class="text-no-file">No file selected</div>
@@ -216,17 +232,27 @@
                                   </div>
                             </button>
                       </div>
+                      <div class="form-message"></div>
                     </div>
                   </div>
-                </form>
+                  <div class="form-group"> 
+                    <div class="form-item"> 
+                          <button class="mdc-button-wrapper tab-expand-click-prev form-submit-validation ">
+                                <div class="mdc-button  mdc-button--outlined ">
+                                  <div class="mdc-button__ripple"></div><span class="mdc-button__label">Back</span>
+                                </div>
+                          </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="upload-images section-card-style"> 
             <div class="section-card-header d-flex align-items-center justify-content-between"> <span class="card-title">Images </span></div>
-            <form class="custom-style-form" action="#">
+            <div class="custom-style-form form-validation">
               <div class="form-group"> 
-                <div class="form-item upload-image uploaded upload-single-image">
+                <div class="form-item upload-image uploaded upload-single-image form-upload-validation" data-rules="required" data-name="Thumbnail Image"> 
                   <div class="upload-wrapper s-250-250 d-flex align-items-center justify-content-center">
                     <input type="file">
                     <div class="upload-placeholder"> <img src="./assets/icons/icon-image-gray.svg" alt="">Upload Image</div>
@@ -247,22 +273,24 @@
                               </div>
                         </button>
                   </div>
+                  <div class="form-message">                 </div>
                 </div>
               </div>
               <div class="form-group"> 
-                <div class="form-item upload-image upload-single-image">
+                <div class="form-item upload-image upload-single-image form-upload-validation" data-rules="required" data-name="Feature Banner Image"> 
                   <div class="upload-wrapper s-350-250 d-flex align-items-center justify-content-center">
                     <input type="file">
                     <div class="upload-placeholder"> <img src="./assets/icons/icon-image-gray.svg" alt="">Upload Image</div>
                   </div>
                   <label class="form-label"><span>Feature Banner Image *</span><i>(350 x 250px)</i></label>
+                  <div class="form-message"></div>
                 </div>
               </div>
-            </form>
+            </div>
           </div><a class="back-page d-flex align-items-center" href="existing-properties.html"><img src="./assets/icons/icon-arrow-left-brown.svg" alt="">Back to Existing Properties</a>
         </div>
       </div>
-    </div>
+    </form>
     <script src="./assets/js/jquery.min.js"> </script>
     <script src="./assets/js/popper.min.js"> </script>
     <script src="./assets/js/bootstrap.min.js"> </script>

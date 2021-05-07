@@ -434,6 +434,14 @@ a {
   .app-main-body .app-body-main {
     margin-top: 15px; }
 
+.custom-style-form .form-message {
+  font-size: 12px;
+  margin-top: 5px; }
+  .custom-style-form .form-message.success {
+    color: #2ecc71; }
+  .custom-style-form .form-message.error {
+    color: #e74c3c; }
+
 .custom-style-form .form-group {
   display: flex;
   justify-content: space-between;
@@ -729,11 +737,12 @@ a {
 
 .custom-style-form .mdc-text-field-helper-line {
   position: absolute;
-  bottom: 25px;
+  top: calc(100% - 60px);
   right: 10px;
   pointer-events: none; }
 
 .custom-style-form .mdc-textarea {
+  position: relative;
   height: auto;
   padding: 20px 16px; }
   .custom-style-form .mdc-textarea .mdc-floating-label {
@@ -763,7 +772,8 @@ a {
     left: 0;
     z-index: 3;
     opacity: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    display: block !important; }
   .mdc-button-wrapper .mdc-button--outlined {
     border-color: #866E5C; }
 
